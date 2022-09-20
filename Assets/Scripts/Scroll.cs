@@ -19,12 +19,12 @@ public class Scroll : MonoBehaviour
 
     private void OnMouseDown()
     {
-        draggingPlane = new Plane(transform.forward, targetObject.transform.position);
+        draggingPlane = new Plane(transform.forward, cam.transform.position);
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
 
         float planeDistance;
         draggingPlane.Raycast(camRay, out planeDistance);
-        offset = targetObject.transform.position - camRay.GetPoint(planeDistance);
+        offset = transform.position - camRay.GetPoint(planeDistance);
 
         Debug.DrawRay(transform.forward, camRay.GetPoint(planeDistance));
     }
