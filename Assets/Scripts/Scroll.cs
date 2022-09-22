@@ -10,10 +10,14 @@ public class Scroll : MonoBehaviour
     private Camera cam;
 
     private GameObject targetObject;
+
+    public bool isFollowing;
+    public bool canFollow;
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main;
+        canFollow = true;
     }
 
 
@@ -31,11 +35,20 @@ public class Scroll : MonoBehaviour
 
     private void OnMouseDrag()
     {
-        Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
-        float planeDistance;
-        draggingPlane.Raycast(camRay, out planeDistance);
-        transform.position = camRay.GetPoint(planeDistance) + offset;
+        if (canFollow)
+        {
+            Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
+            float planeDistance;
+            draggingPlane.Raycast(camRay, out planeDistance);
+            transform.position = camRay.GetPoint(planeDistance) + offset;
+            isFollowing = true;
+        }
     }
 
-    
+    private void OnMouseUp()
+    {
+        isFollowing = false;
+    }
+
+
 }
