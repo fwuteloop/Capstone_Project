@@ -12,4 +12,5 @@ public class Weapon : ScriptableObject
     public int damage;
     public int fireRate;
     public GameObject projectile;
+
 }

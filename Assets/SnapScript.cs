@@ -29,7 +29,7 @@ public class SnapScript : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (scroll.isFollowing == false)
+        if (scroll.isFollowing == false && collision.gameObject.layer == 3)
         {
             Debug.Log("Snap to plot");
             gameObject.transform.position = collision.transform.position;
