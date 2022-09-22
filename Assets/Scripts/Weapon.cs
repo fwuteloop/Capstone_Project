@@ -10,7 +10,6 @@ public class Weapon : ScriptableObject
     public Sprite sprite;
     public int health;
     public int damage;
-    public int fireRate;
-    public GameObject projectile;
+    public float fireRate;
 
 }

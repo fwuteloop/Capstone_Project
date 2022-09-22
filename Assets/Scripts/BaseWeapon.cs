@@ -18,15 +18,17 @@ public class BaseWeapon : MonoBehaviour
 
     public int health;
     public int damage;
-    public int fireRate;
+
+    public float fireRate;
+    private float fireTimer;
     public int fireRadius;
+    public bool firing;
 
     public float detectionDelay = .3f;
     public LayerMask enemyMask;
 
     public GameObject projectile;
-
-    public Vector2 leftMove;
+    public GameObject currentEnemy;
     private void Awake()
     {
         WeaponSetup();
@@ -40,7 +42,15 @@ public class BaseWeapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (firing)
+        {
+            fireTimer += Time.deltaTime;
+            if (fireTimer > fireRate)
+            {
+                Fire(currentEnemy);
+                fireTimer = 0;
+            }
+        }
     }
 
     IEnumerator DetectEnemies()
@@ -50,17 +60,29 @@ public class BaseWeapon : MonoBehaviour
             Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, enemyMask);
             if (scroll.canFollow == false && scroll.isFollowing == false)
             {
-                if (collider != null)
-                    Fire();
+            if (collider != null)
+            {
+                currentEnemy = collider.gameObject;
+                firing = true;
+            }
+            else
+            {
+                currentEnemy = null;
+                firing = false;
+            }
             }
         StartCoroutine(DetectEnemies());
         
     }
 
-    void Fire()
+    void Fire(GameObject enemy)
     {
-        Debug.Log("firing");
-        
+        if (currentEnemy != null)
+        {
+            Debug.Log(enemy.transform.position);
+            Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
+            projectile.GetComponent<BaseProjectile>().target = enemy.transform.position;
+        }
     }
     void WeaponSetup()
     {
@@ -71,9 +93,6 @@ public class BaseWeapon : MonoBehaviour
         health = weapon.health;
         damage = weapon.damage;
         fireRate = weapon.fireRate;
-
-        projectile = weapon.projectile;
-       
         
     }
 
