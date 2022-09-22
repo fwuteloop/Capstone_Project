@@ -6,7 +6,7 @@ public class Scroll : MonoBehaviour
 {
     private Plane draggingPlane;
     [SerializeField]
-    private Vector3 offset;
+    //private Vector3 offset;
     private Camera cam;
 
     private GameObject targetObject;
@@ -23,12 +23,12 @@ public class Scroll : MonoBehaviour
 
     private void OnMouseDown()
     {
-        draggingPlane = new Plane(cam.transform.forward, targetObject.transform.position);
+        draggingPlane = new Plane(cam.transform.forward, gameObject.transform.position);
         Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
 
         float planeDistance;
         draggingPlane.Raycast(camRay, out planeDistance);
-        offset = targetObject.transform.position - camRay.GetPoint(planeDistance);
+        //offset = gameObject.transform.position - camRay.GetPoint(planeDistance);
 
         Debug.DrawRay(cam.transform.forward, camRay.GetPoint(planeDistance));
     }
@@ -40,7 +40,7 @@ public class Scroll : MonoBehaviour
             Ray camRay = cam.ScreenPointToRay(Input.mousePosition);
             float planeDistance;
             draggingPlane.Raycast(camRay, out planeDistance);
-            transform.position = camRay.GetPoint(planeDistance) + offset;
+            transform.position = camRay.GetPoint(planeDistance); //+ offset;
             isFollowing = true;
         }
     }

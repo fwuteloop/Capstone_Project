@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8203deef66e6fc4488d977b5c9e5ed69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 11400000, guid: b8cebd69b811eeb43bc33408aae47028, type: 2}
+  weapon: {fileID: 11400000, guid: 03362671018e67c4fbeb319b5739e2ff, type: 2}
   name: 
   description: 
   sprite: {fileID: 0}
@@ -276,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccc574c566949154db72891b1ec63419, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0, z: 0}
+  cam: {fileID: 0}
   isFollowing: 0
   canFollow: 0
 --- !u!114 &520726150
@@ -351,7 +351,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.22387859, g: 0.3679245, b: 0.22746728, a: 1}
+  m_Color: {r: 0.19001423, g: 0.6603774, b: 0.19236094, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

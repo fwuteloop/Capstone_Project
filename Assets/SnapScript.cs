@@ -14,9 +14,18 @@ public class SnapScript : MonoBehaviour
     {
         if(collision.gameObject.layer == 3)
         {
-            Debug.Log("Plot found");
+            //change its sprite to something else
         }
     }
+
+    private void OnTriggerExitr2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 3)
+        {
+            //change its sprite to back to the original
+        }
+    }
+
 
     private void OnTriggerStay2D(Collider2D collision)
     {
