@@ -9,8 +9,6 @@ public class Scroll : MonoBehaviour
     //private Vector3 offset;
     private Camera cam;
 
-    private GameObject targetObject;
-
     public bool isFollowing;
     public bool canFollow;
     // Start is called before the first frame update
