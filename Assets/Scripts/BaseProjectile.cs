@@ -8,6 +8,8 @@ public class BaseProjectile : MonoBehaviour
 
     public float speed;
     public Vector3 target;
+    public Vector3 direction;
+    public LayerMask enemyLayer;
 
     public float damage;
     public float expiration;
@@ -25,16 +27,15 @@ public class BaseProjectile : MonoBehaviour
     void Start()
     {
         ComponentSetup();
-
+        direction = (target - transform.position).normalized * speed * Time.deltaTime;
+        rigidBody2D.velocity = new Vector2(direction.x, direction.y);
+        Destroy(gameObject, expiration);
     }
 
     // Update is called once per frame
     void Update()
     {
-       expirationTime += Time.deltaTime;
-        if (expirationTime > expiration)
-            Destroy(gameObject);
-        transform.position = Vector3.MoveTowards(transform.position, transform.position + target, .07f);
+
     }
 
     void ProjectileSetup()
@@ -60,5 +61,14 @@ public class BaseProjectile : MonoBehaviour
         rigidBody2D.gravityScale = 0;
         spriteRenderer.sprite = sprite;
         spriteRenderer.sortingOrder = 2;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.layer == 7)
+        {
+            Debug.Log("enemy");
+            Destroy(gameObject);
+        }
     }
 }

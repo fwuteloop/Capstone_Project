@@ -44,6 +44,7 @@ public class BaseWeapon : MonoBehaviour
     {
         if (firing)
         {
+            transform.right = currentEnemy.transform.position - transform.position;
             fireTimer += Time.deltaTime;
             if (fireTimer > fireRate)
             {
@@ -79,6 +80,7 @@ public class BaseWeapon : MonoBehaviour
     {
         if (currentEnemy != null)
         {
+            
             Debug.Log(enemy.transform.position);
             Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
             projectile.GetComponent<BaseProjectile>().target = enemy.transform.position;
@@ -112,5 +114,7 @@ public class BaseWeapon : MonoBehaviour
         scroll = GetComponent<Scroll>();
 
         rigidBody.bodyType = RigidbodyType2D.Kinematic;
+
+        rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
