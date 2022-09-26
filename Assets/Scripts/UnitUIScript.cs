@@ -47,11 +47,11 @@ public class UnitUIScript : MonoBehaviour
     {
         if(isOpen)
         {
-            buttonText.text = "^";
+            buttonText.text = ">";
         }
         else
         {
-            buttonText.text = "v";
+            buttonText.text = "<";
         }
     }
     public void OpenButtonFunction()

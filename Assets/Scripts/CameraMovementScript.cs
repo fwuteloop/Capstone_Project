@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CameraMovementScript : MonoBehaviour
 {
-    public Transform[] pos = new Transform[7];
+    public Vector2[] pos = new Vector2[6];
     // 0 - mines
     // 1 - grass
     // 2 - desert
@@ -19,7 +19,7 @@ public class CameraMovementScript : MonoBehaviour
     //2 - up
     //3 - down
     public int currentpos = 1; // current position of camera - starts at grassland
-    public float duration = 2;
+    public float duration;
     public bool canClick = true;
 
     public void Start()
@@ -50,31 +50,31 @@ public class CameraMovementScript : MonoBehaviour
     {
         switch(index)
         {
-            case 0: //mines
+            case 10: //mines
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(false);
                 break;
-                 case 1: //grass
+                 case 0: //grass
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(true);
                 buttons[2].gameObject.SetActive(false);
                 buttons[3].gameObject.SetActive(true);
                 break;
-                 case 4: //mountain
+                 case 3: //mountain
                 buttons[0].gameObject.SetActive(true);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(false);
                 break;
-                 case 5: //sky
+                 case 4: //sky
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(true);
                 break;
-                 case 6: //space
+                 case 5: //space
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(false);
@@ -95,7 +95,7 @@ public class CameraMovementScript : MonoBehaviour
         {
             currentpos += 1;
             canClick = false;
-            StartCoroutine(Movement(transform.position, pos[currentpos].position.x, pos[currentpos].position.y));
+            StartCoroutine(Movement(transform.position, pos[currentpos].x, pos[currentpos].y));
         }
     }
 
@@ -105,7 +105,7 @@ public class CameraMovementScript : MonoBehaviour
         {
             currentpos -= 1;
             canClick = false;
-            StartCoroutine(Movement(transform.position, pos[currentpos].position.x, pos[currentpos].position.y));
+            StartCoroutine(Movement(transform.position, pos[currentpos].x, pos[currentpos].y));
         }
     }
 }
