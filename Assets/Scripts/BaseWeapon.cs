@@ -81,7 +81,7 @@ public class BaseWeapon : MonoBehaviour
         if (currentEnemy != null)
         {
             
-            Debug.Log(enemy.transform.position);
+            //Debug.Log(enemy.transform.position);
             Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
             projectile.GetComponent<BaseProjectile>().target = enemy.transform.position;
         }
