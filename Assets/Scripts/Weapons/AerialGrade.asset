@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dece8c8d320e6e408ecd95ffd451cc4, type: 3}
+  m_Name: AerialGrade
+  m_EditorClassIdentifier: 
+  name: Aerial-Grade Shooter
+  description: Slaps ome propellers on this bad boy. Now we have an Air Force!
+  sprite: {fileID: 0}
+  health: 0
+  damage: 0
+  fireRate: 0

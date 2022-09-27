@@ -9,6 +9,7 @@ public class UIfollow : MonoBehaviour
     public Vector3 offset;
     public Camera cam;
     public Canvas c;
+    public int index;
 
     private void Start()
     {
