@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     public float speed = 200f;
     public float nextWaypointDistance = 3f;
 
+    public Vector2 direction;
+
     Path basePath;
     int currentWayPoint = 0;
     bool reachedBase;
@@ -20,7 +22,7 @@ public class EnemyMovement : MonoBehaviour
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
-
+        target = GameObject.Find("BASE").transform;
         seeker.StartPath(rb.position, target.position, OnPathComplete);
     }
 
@@ -46,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
             reachedBase = false;
         }
 
-        Vector2 direction = ((Vector2)basePath.vectorPath[currentWayPoint] - rb.position).normalized;
+        direction = ((Vector2)basePath.vectorPath[currentWayPoint] - rb.position).normalized;
         Vector2 force = direction * speed * Time.deltaTime;
 
         rb.AddForce(force);
