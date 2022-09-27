@@ -11,6 +11,12 @@ public class UnitUIScript : MonoBehaviour
     public bool canClick = true;
     public Vector3 openPos, closedPos;
     public float duration;
+    public Canvas c;
+    public GameObject[] weapons;
+    //0 - terra
+    //1 - tundra
+    //2 - aerial
+    //3 - galactic
 
     IEnumerator UIAnimator()
     {
@@ -62,5 +68,11 @@ public class UnitUIScript : MonoBehaviour
             StartCoroutine(UIAnimator());
             canClick = false;
         }
+    }
+
+    public void WeaponButton(int i)
+    {
+        var g = Instantiate(weapons[i], transform.position, Quaternion.identity);
+        g.transform.SetParent(c.transform, false);
     }
 }

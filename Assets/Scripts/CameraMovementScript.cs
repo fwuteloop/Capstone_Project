@@ -50,31 +50,31 @@ public class CameraMovementScript : MonoBehaviour
     {
         switch(index)
         {
-            case 10: //mines
+            case 0: //mines
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(false);
                 break;
-                 case 0: //grass
+                 case 1: //grass
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(true);
                 buttons[2].gameObject.SetActive(false);
                 buttons[3].gameObject.SetActive(true);
                 break;
-                 case 3: //mountain
+                 case 4: //mountain
                 buttons[0].gameObject.SetActive(true);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(false);
                 break;
-                 case 4: //sky
+                 case 5: //sky
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(true);
                 break;
-                 case 5: //space
+                 case 6: //space
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(false);
