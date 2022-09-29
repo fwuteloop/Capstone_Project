@@ -22,6 +22,8 @@ public class UnitUIScript : MonoBehaviour
     //3 - galactic
     public TextMeshProUGUI wepName, wepDesc, wepStats;
     public Image wepPreview;
+    public GameObject confirmPanel;
+    public GameObject gm;
 
     public void PreviewCheck(bool canShow, int i)
     {
@@ -97,5 +99,22 @@ public class UnitUIScript : MonoBehaviour
         g.transform.SetParent(c.transform, false);
         g.GetComponent<Image>().sprite = weaponSprites[i];
         g.GetComponent<UIfollow>().index = i;
+    }
+
+    public void StartWaveButton(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                confirmPanel.SetActive(true);
+                break;
+            case 1:
+                confirmPanel.SetActive(false);
+                gm.GetComponent<GameManager>().CheckStateFunction(1);
+                break;
+            case 2:
+                confirmPanel.SetActive(false);
+                break;
+        }
     }
 }
