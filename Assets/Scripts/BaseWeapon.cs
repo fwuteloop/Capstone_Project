@@ -27,6 +27,7 @@ public class BaseWeapon : MonoBehaviour
     public float detectionDelay = .3f;
     public LayerMask enemyMask;
 
+    public LayerMask unitMask;
     public GameObject projectile;
     public GameObject currentEnemy;
     private void Awake()
@@ -37,6 +38,8 @@ public class BaseWeapon : MonoBehaviour
     {
         ComponentSetup();
         StartCoroutine(DetectEnemies());
+        unitMask = 10;
+        gameObject.layer = unitMask;
     }
 
     // Update is called once per frame
