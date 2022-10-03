@@ -13,40 +13,31 @@ public class UnitUIScript : MonoBehaviour
     public float duration;
     public Canvas c;
     public GameObject newWeapon;
-    public GameObject previewPanel;
-    public Sprite[] weaponSprites;
+    public GameObject unitPreviewPanel;
+    public GameObject unitButtons, mineButtons;
+   public Sprite[] weaponSprites;
     public Weapon[] weapons;
     //0 - terra
     //1 - tundra
     //2 - aerial
     //3 - galactic
-    public TextMeshProUGUI wepName, wepDesc, wepStats;
+    public MineUpgrade[] upgrades;
+    //0 better tools
+    //1 more workers
+    //2 minecarts
+    public TextMeshProUGUI wepName, wepDesc, wepStats, upgradeDesc;
     public Image wepPreview;
     public GameObject confirmPanel;
     public GameObject gm;
 
-    public void PreviewCheck(bool canShow, int i)
-    {
-        if(canShow)
-        {
-            var w = weapons[i];
-            previewPanel.SetActive(true);
-            wepPreview.sprite = w.sprite;
-            wepDesc.text = w.description;
-            wepName.text = w.name;
-            wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
-        }
-        else
-        {
-            previewPanel.SetActive(false);
-        }
-    }
+
+    // Universal UI stuff
     IEnumerator UIAnimator()
     {
         var time = 0f;
         Vector3 start = Vector3.zero;
         Vector3 target = Vector3.zero;
-        if(isOpen)
+        if (isOpen)
         {
             start = closedPos;
             target = openPos;
@@ -57,7 +48,7 @@ public class UnitUIScript : MonoBehaviour
             target = closedPos;
         }
 
-        while(time < duration)
+        while (time < duration)
         {
             float t = time / duration;
             t = Mathf.Sin(t * Mathf.PI * .5f);
@@ -74,7 +65,7 @@ public class UnitUIScript : MonoBehaviour
     }
     public void CheckButtonFunction()
     {
-        if(isOpen)
+        if (isOpen)
         {
             buttonText.text = ">";
         }
@@ -85,14 +76,31 @@ public class UnitUIScript : MonoBehaviour
     }
     public void OpenButtonFunction()
     {
-        if(canClick)
+        if (canClick)
         {
             isOpen = !isOpen;
             StartCoroutine(UIAnimator());
             canClick = false;
         }
     }
-
+    // Just Unit Stuff
+    public void UnitPreviewCheck(bool canShow, int i)
+    {
+        if (canShow)
+        {
+            var w = weapons[i];
+            unitPreviewPanel.SetActive(true);
+            wepPreview.sprite = w.sprite;
+            wepDesc.text = w.description;
+            wepName.text = w.name;
+            wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
+            upgradeDesc.text = "";
+        }
+        else
+        {
+            unitPreviewPanel.SetActive(false);
+        }
+    }
     public void WeaponButton(int i)
     {
         var g = Instantiate(newWeapon, transform.position, Quaternion.identity);
@@ -100,10 +108,9 @@ public class UnitUIScript : MonoBehaviour
         g.GetComponent<Image>().sprite = weaponSprites[i];
         g.GetComponent<UIfollow>().index = i;
     }
-
     public void StartWaveButton(int i)
     {
-        switch(i)
+        switch (i)
         {
             case 0:
                 confirmPanel.SetActive(true);
@@ -117,4 +124,24 @@ public class UnitUIScript : MonoBehaviour
                 break;
         }
     }
+    //Just Mines Stuff
+    public void MinesPreviewCheck(bool canShow, int i, int level)
+    {
+        if (canShow)
+        {
+            var m = upgrades[i];
+            unitPreviewPanel.SetActive(true);
+            wepPreview.sprite = m.icons[level];
+            upgradeDesc.text = m.description[level];
+            wepName.text = m.name;
+            wepDesc.text = "";
+            wepStats.text = "";
+        }
+        else
+        {
+            unitPreviewPanel.SetActive(false);
+        }
+    }
 }
+
+

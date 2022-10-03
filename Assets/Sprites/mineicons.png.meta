@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed7dad3ef7844b34a8e2821146b82775
+guid: 8be9c8518e8bc484c9d94dcc39e7afd9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,13 +116,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: terra grade icon
+      name: moreworkers1
       rect:
         serializedVersion: 2
-        x: 17
-        y: 2271
-        width: 445
-        height: 399
+        x: 186
+        y: 2712
+        width: 708
+        height: 808
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,20 +130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851ad55678367e547ac4d7b138708bd5
-      internalID: 83111495
+      spriteID: 4eee815e1bbe6bc489c9683461937a51
+      internalID: 2109693491
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terra grade ingame
+      name: moreworkers2
       rect:
         serializedVersion: 2
-        x: 614
-        y: 2287
-        width: 177
-        height: 377
+        x: 1162
+        y: 2712
+        width: 906
+        height: 818
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -151,20 +151,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a88934b1d5e83264b8fb58fa4bbe1663
-      internalID: -661167796
+      spriteID: c465ebc3b4720714496a2f10f1249008
+      internalID: 666481196
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: resources icon
+      name: moreworkers3
       rect:
         serializedVersion: 2
-        x: 959
-        y: 2396
-        width: 262
-        height: 261
+        x: 2307
+        y: 2719
+        width: 945
+        height: 818
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,20 +172,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2f5e6cbf80dab45bc4305ce4426c79
-      internalID: -2120256300
+      spriteID: a63242f93487a7145b28cf22b70229ac
+      internalID: -958442557
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tundra icon
+      name: diamon pick
       rect:
         serializedVersion: 2
-        x: 39
-        y: 1839
-        width: 445
-        height: 399
+        x: 2903
+        y: 1623
+        width: 950
+        height: 938
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +193,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c99dd2c60a680214899b385276a150a9
-      internalID: 1766444819
+      spriteID: 8bf5370db16ce0a4cb817f1976425660
+      internalID: 1894023800
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tundra ingame
+      name: goldpick
       rect:
         serializedVersion: 2
-        x: 666
-        y: 1872
-        width: 176
-        height: 378
+        x: 1558
+        y: 1582
+        width: 949
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +214,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7662e4db48720542acda6b24f6ba5e1
-      internalID: -601856741
+      spriteID: 3412ec3a52e654f43910fec2196433e7
+      internalID: -347209052
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aerial rotate
+      name: ironpick
       rect:
         serializedVersion: 2
-        x: 38
-        y: 1561
-        width: 445
-        height: 240
+        x: 159
+        y: 1550
+        width: 949
+        height: 940
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,20 +235,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74cbcabd1f8daab44aa4e97b2e4a10e3
-      internalID: -737040788
+      spriteID: de0f28c4c45dbc5488940962d51bcbb2
+      internalID: -1214787928
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: galactic rotate
+      name: minecart3
       rect:
         serializedVersion: 2
-        x: 612
-        y: 1563
-        width: 393
-        height: 246
+        x: 78
+        y: 242
+        width: 1485
+        height: 1044
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,20 +256,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56c9a0a781f128b4f9439e27dfaa98f3
-      internalID: 1808481487
+      spriteID: 8fe3fd98163e07a47921358bceeb4ead
+      internalID: -627290138
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gun sprites_7
+      name: minecart2
       rect:
         serializedVersion: 2
-        x: 800
-        y: 1752
-        width: 13
-        height: 42
+        x: 1743
+        y: 215
+        width: 1485
+        height: 1008
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,20 +277,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f55271f04fb5a64e9a9876fed2dd3d1
-      internalID: -842570279
+      spriteID: e98667da33daa0c4c9ae9da049b24aab
+      internalID: 609001437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aeiral base
+      name: minecart1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 1156
-        width: 325
-        height: 364
+        x: 3416
+        y: 232
+        width: 1484
+        height: 1008
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,20 +298,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2db7cf9a6e38e849916f3c00a8d01ce
-      internalID: 291118429
+      spriteID: 536d4897e7598974dbc30669b67c23e4
+      internalID: -743777203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: galactic base
+      name: mineicons_15
       rect:
         serializedVersion: 2
-        x: 690
-        y: 1370
-        width: 69
-        height: 141
+        x: 356
+        y: 212
+        width: 10
+        height: 10
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,20 +319,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad291e0a2b6af824ab33f3073e6dce94
-      internalID: 1867466033
+      spriteID: 8549c8d8791a5824b999cc21034bfd9d
+      internalID: -27876120
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: galactic icon
+      name: mineicons_16
       rect:
         serializedVersion: 2
-        x: 645
-        y: 954
-        width: 392
-        height: 324
+        x: 3691
+        y: 203
+        width: 10
+        height: 7
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,20 +340,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c340be3775a9e4caa4d24a260a725f
-      internalID: -1765961156
+      spriteID: b5288cb2de968a643aa7ec1ed5f48064
+      internalID: 1895258888
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gun sprites_11
+      name: mineicons_18
       rect:
         serializedVersion: 2
-        x: 832
-        y: 1219
-        width: 13
-        height: 42
+        x: 300
+        y: 154
+        width: 27
+        height: 27
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,20 +361,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e7c98d1674491b4294cd0e3fbea2060
-      internalID: -183984265
+      spriteID: 78856ca774405e04ab93c48eb00c800c
+      internalID: 121525461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aerial icon
+      name: mineicons_19
       rect:
         serializedVersion: 2
-        x: 128
-        y: 540
-        width: 444
-        height: 441
+        x: 3638
+        y: 142
+        width: 27
+        height: 29
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,8 +382,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf3896121a988b4a99958c6279eb6a2
-      internalID: 903326751
+      spriteID: 55eb8510b657b6c4c807017898bf5fd2
+      internalID: -572920209
       vertices: []
       indices: 
       edges: []
@@ -399,19 +399,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      resources icon: -2120256300
-      tundra icon: 1766444819
-      aeiral base: 291118429
-      galactic rotate: 1808481487
-      gun sprites_11: -183984265
-      terra grade ingame: -661167796
-      aerial rotate: -737040788
-      aerial icon: 903326751
-      gun sprites_7: -842570279
-      tundra ingame: -601856741
-      terra grade icon: 83111495
-      galactic base: 1867466033
-      galactic icon: -1765961156
+      mineicons_18: 121525461
+      mineicons_8: 641514783
+      goldpick: -347209052
+      mineicons_5: -192388568
+      mineicons_19: -572920209
+      mineicons_15: -27876120
+      moreworkers2: 666481196
+      mineicons_17: -1715092337
+      moreworkers1: 2109693491
+      diamon pick: 1894023800
+      minecart1: -743777203
+      moreworkers3: -958442557
+      minecart2: 609001437
+      mineicons_16: 1895258888
+      mineicons_20: 1514863966
+      mineicons_3: 2091249227
+      mineicons_9: 616020473
+      ironpick: -1214787928
+      mineicons_4: -1089018148
+      mineicons_6: -383657027
+      minecart3: -627290138
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
