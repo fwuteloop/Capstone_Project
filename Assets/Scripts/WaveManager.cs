@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
-    public int waveThreshold = 3;
     public int currentWave;
+    public int currentEnemyCount;
     public int maxEnemyCount;
 
     public float spawnInterval;
@@ -31,9 +31,14 @@ public class WaveManager : MonoBehaviour
         yield return new WaitForSeconds(spawnInterval);
         for(int i = 0; i < maxEnemyCount; i++)
         {
-            Instantiate(lvl1Enemies[Random.Range(0, lvl1Enemies.Length)], currentSpawnPoint);
-            Debug.Log("spawned enemy");
-            i++;
+            if (currentEnemyCount < maxEnemyCount)
+            {
+                Instantiate(lvl1Enemies[Random.Range(0, lvl1Enemies.Length)], currentSpawnPoint.position, Quaternion.identity);
+                yield return new WaitForSeconds(Random.Range(1.3f, 3.4f));
+                currentEnemyCount += 1;
+                i++;
+            }
         }
+        StartCoroutine(SpawnEnemies());
     }
 }

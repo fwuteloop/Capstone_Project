@@ -31,7 +31,7 @@ public class SnapScript : MonoBehaviour
     {
         if (scroll.isFollowing == false && collision.gameObject.layer == 3)
         {
-            Debug.Log("Snap to plot");
+            //Debug.Log("Snap to plot");
             gameObject.transform.position = collision.transform.position;
             scroll.canFollow = false;
         }

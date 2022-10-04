@@ -9,17 +9,15 @@ public class EnemyBehavior : MonoBehaviour
 
     public GameObject projectile;
 
-    Transform nearestUnit;
+    GameObject nearestUnit;
     float fireTimer;
-    public int unitMask;
+    public LayerMask unitMask;
     float fireRadius = 10;
 
-    public bool foundNearestUnit;
+    public bool firing;
     // Start is called before the first frame update
     void Start()
     {
-        unitMask = 10;
-        foundNearestUnit = false;
         enemyValues = GetComponent<EnemySetup>();
         enemyMovement = GetComponent<EnemyMovement>();
         StartCoroutine(DetectUnits());
@@ -28,16 +26,13 @@ public class EnemyBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (foundNearestUnit)
+        if (firing)
         {
-            if (nearestUnit != null)
-                transform.right = nearestUnit.transform.position - transform.position;
-            else
-                transform.right = enemyMovement.direction;
+            transform.right = nearestUnit.transform.position - transform.position;
             fireTimer += Time.deltaTime;
             if (fireTimer > enemyValues.fireRate)
             {
-                Instantiate(projectile, transform.position, Quaternion.identity);
+                Fire(nearestUnit);
                 fireTimer = 0;
             }
         }
@@ -47,20 +42,33 @@ public class EnemyBehavior : MonoBehaviour
     IEnumerator DetectUnits()
     {
         yield return new WaitForSeconds(.3f);
-        Debug.Log("looking..");
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, unitMask);
-        if(collider != null)
+        if (enemyValues.longRange == true)
         {
-            Debug.Log("found: " + collider.name);
-            foundNearestUnit = true;
-            nearestUnit = collider.transform;
+            Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, unitMask);
+            if (collider != null)
+            {
+                Debug.Log(collider.gameObject.name);
+                nearestUnit = collider.gameObject;
+                firing = true;
+            }
+            else
+            {
+                nearestUnit = null;
+                firing = false;
+            }
+        }
+        StartCoroutine(DetectUnits());
+    }
+
+    void Fire(GameObject unit)
+    {
+        if (unit != null)
+        {
+            Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
+            projectile.GetComponent<BaseProjectile>().target = unit;
+            Debug.Log(unit);
         }
         else
-        {
-            nearestUnit = null;
-            foundNearestUnit = false;
-        }
-
-        StartCoroutine(DetectUnits());
+            return;
     }
 }

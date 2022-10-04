@@ -19,13 +19,13 @@ public class EnemySetup : MonoBehaviour
 
     private void Awake()
     {
-        
+        ComponentSetup();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        ComponentSetup();
+        
         ValueSetup();
     }
 
@@ -44,15 +44,16 @@ public class EnemySetup : MonoBehaviour
     {
         if (GetComponent<SpriteRenderer>() == null)
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        if (GetComponent<BoxCollider2D>() == null)
-            boxCollider = gameObject.AddComponent<BoxCollider2D>();
-        if (GetComponent<Rigidbody2D>() == null)
-            rigidBody = gameObject.AddComponent<Rigidbody2D>();
-
         spriteRenderer.sprite = sprite;
         spriteRenderer.sortingOrder = 1;
+
+        if (GetComponent<BoxCollider2D>() == null)
+            boxCollider = gameObject.AddComponent<BoxCollider2D>();
         boxCollider.size = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
         boxCollider.isTrigger = true;
+
+        if (GetComponent<Rigidbody2D>() == null)
+            rigidBody = gameObject.AddComponent<Rigidbody2D>();
 
         rigidBody.gravityScale = 0;
         rigidBody.drag = 1.5f;

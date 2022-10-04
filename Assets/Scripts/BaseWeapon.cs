@@ -81,12 +81,10 @@ public class BaseWeapon : MonoBehaviour
 
     void Fire(GameObject enemy)
     {
-        if (currentEnemy != null)
+        if (enemy != null)
         {
-            
-            //Debug.Log(enemy.transform.position);
             Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
-            projectile.GetComponent<BaseProjectile>().target = enemy.transform.position;
+            projectile.GetComponent<BaseProjectile>().target = enemy;
         }
     }
     void WeaponSetup()

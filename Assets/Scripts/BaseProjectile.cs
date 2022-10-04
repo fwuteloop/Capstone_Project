@@ -7,9 +7,8 @@ public class BaseProjectile : MonoBehaviour
     public Projectile projectile;
 
     public float speed;
-    public Vector3 target;
+    public GameObject target;
     public Vector3 direction;
-    public LayerMask enemyLayer;
 
     public float damage;
     public float expiration;
@@ -26,16 +25,11 @@ public class BaseProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         ComponentSetup();
-        direction = (target - transform.position).normalized * speed * Time.deltaTime;
+        direction = (target.transform.position - transform.position).normalized * speed * Time.deltaTime;
         rigidBody2D.velocity = new Vector2(direction.x, direction.y);
         Destroy(gameObject, expiration);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     void ProjectileSetup()
@@ -65,9 +59,8 @@ public class BaseProjectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.layer == 7)
+        if(collision.gameObject.layer == target.layer)
         {
-            Debug.Log("enemy");
             Destroy(gameObject);
         }
     }

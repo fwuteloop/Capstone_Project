@@ -17,4 +17,4 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 39c132fff7388d54883da1663e7f449b, type: 3}
   fireRate: 3
   health: 50
-  longRange: 0
+  longRange: 1
