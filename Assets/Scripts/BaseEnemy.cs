@@ -11,4 +11,5 @@ public class BaseEnemy : ScriptableObject
     public float fireRate;
     public float health;
     public bool longRange;
+    public float damage;
 }

@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8c3f500d0312f54e810fda77b269f88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 5288062950113398022, guid: a596d0c9b3d17e449a1d365c3eb98c78, type: 3}
+  projectile: {fileID: 7446658600289275709, guid: fbe297cd46f0f164693ea86a802f8506, type: 3}
   unitMask:
     serializedVersion: 2
     m_Bits: 1024
-  foundNearestUnit: 0
+  firing: 0
 --- !u!114 &433048454854475437
 MonoBehaviour:
   m_ObjectHideFlags: 0

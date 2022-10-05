@@ -10,7 +10,7 @@ public class EnemyBehavior : MonoBehaviour
     public GameObject projectile;
 
     GameObject nearestUnit;
-    float fireTimer;
+    public float fireTimer;
     public LayerMask unitMask;
     float fireRadius = 10;
 
@@ -28,7 +28,8 @@ public class EnemyBehavior : MonoBehaviour
     {
         if (firing)
         {
-            transform.right = nearestUnit.transform.position - transform.position;
+            if(nearestUnit != null)
+                transform.right = nearestUnit.transform.position - transform.position;
             fireTimer += Time.deltaTime;
             if (fireTimer > enemyValues.fireRate)
             {
@@ -37,6 +38,8 @@ public class EnemyBehavior : MonoBehaviour
             }
         }
 
+        if (enemyValues.health < 0)
+            Destroy(gameObject);
     }
 
     IEnumerator DetectUnits()
@@ -47,7 +50,7 @@ public class EnemyBehavior : MonoBehaviour
             Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, unitMask);
             if (collider != null)
             {
-                Debug.Log(collider.gameObject.name);
+                //Debug.Log(collider.gameObject.name);
                 nearestUnit = collider.gameObject;
                 firing = true;
             }
@@ -62,13 +65,18 @@ public class EnemyBehavior : MonoBehaviour
 
     void Fire(GameObject unit)
     {
-        if (unit != null)
+            GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
+            proj.tag = "EProj";
+        proj.GetComponent<ProjectileBehavior>().damage = enemyValues.damage;
+            proj.GetComponent<ProjectileBehavior>().target = unit;
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "UProj")
         {
-            Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<BaseProjectile>();
-            projectile.GetComponent<BaseProjectile>().target = unit;
-            Debug.Log(unit);
+            enemyValues.health -= collision.gameObject.GetComponent<ProjectileBehavior>().damage;
         }
-        else
-            return;
     }
 }

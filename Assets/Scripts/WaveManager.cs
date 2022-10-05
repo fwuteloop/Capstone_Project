@@ -13,6 +13,8 @@ public class WaveManager : MonoBehaviour
 
     public Transform currentSpawnPoint;
 
+    public GameObject[] currentLvlEnemies;
+
     public GameObject[] lvl1Enemies;
     public GameObject[] lvl2Enemies;
     public GameObject[] lvl3Enemies;
@@ -33,7 +35,7 @@ public class WaveManager : MonoBehaviour
         {
             if (currentEnemyCount < maxEnemyCount)
             {
-                Instantiate(lvl1Enemies[Random.Range(0, lvl1Enemies.Length)], currentSpawnPoint.position, Quaternion.identity);
+                Instantiate(lvl1Enemies[Random.Range(0, currentLvlEnemies.Length)], currentSpawnPoint.position, Quaternion.identity);
                 yield return new WaitForSeconds(Random.Range(1.3f, 3.4f));
                 currentEnemyCount += 1;
                 i++;

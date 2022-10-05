@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySetup : MonoBehaviour
+public class WeaponSetup : MonoBehaviour
 {
-    public BaseEnemy enemy;
+    public BaseWeapon weapon;
 
     public new string name;
     public string description;
-    public Sprite sprite;
     public float health;
-    public float fireRate;
-    public bool longRange;
     public float damage;
+    public float fireRate;
 
-    SpriteRenderer spriteRenderer;
-    BoxCollider2D boxCollider;
-    Rigidbody2D rigidBody;
+    public Sprite sprite;
+    private BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+    private Rigidbody2D rigidBody;
+    private Scroll scroll;
 
     private void Awake()
     {
@@ -26,32 +26,33 @@ public class EnemySetup : MonoBehaviour
 
     void ValueSetup()
     {
-        name = enemy.name;
-        description = enemy.description;
-        sprite = enemy.sprite;
-        damage = enemy.damage;
-        health = enemy.health;
-        fireRate = enemy.fireRate;
-        longRange = enemy.longRange;
+        name = weapon.name;
+        description = weapon.description;
+        sprite = weapon.sprite;
+
+        health = weapon.health;
+        damage = weapon.damage;
+        fireRate = weapon.fireRate;
+
     }
 
     void ComponentSetup()
     {
         if (GetComponent<SpriteRenderer>() == null)
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
-        spriteRenderer.sprite = sprite;
-        spriteRenderer.sortingOrder = 1;
-
         if (GetComponent<BoxCollider2D>() == null)
             boxCollider = gameObject.AddComponent<BoxCollider2D>();
-        boxCollider.size = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
-        boxCollider.isTrigger = true;
-
         if (GetComponent<Rigidbody2D>() == null)
             rigidBody = gameObject.AddComponent<Rigidbody2D>();
 
-        rigidBody.gravityScale = 0;
-        rigidBody.drag = 1.5f;
+        spriteRenderer.sprite = sprite;
+        spriteRenderer.sortingOrder = 1;
+        boxCollider.size = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
+        boxCollider.isTrigger = true;
+        scroll = GetComponent<Scroll>();
+
+        rigidBody.bodyType = RigidbodyType2D.Kinematic;
+
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
