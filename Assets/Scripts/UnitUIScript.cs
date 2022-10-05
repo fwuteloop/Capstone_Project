@@ -16,7 +16,7 @@ public class UnitUIScript : MonoBehaviour
     public GameObject unitPreviewPanel;
     public GameObject unitButtons, mineButtons;
    public Sprite[] weaponSprites;
-    public Weapon[] weapons;
+    public BaseWeapon[] weapons;
     //0 - terra
     //1 - tundra
     //2 - aerial
