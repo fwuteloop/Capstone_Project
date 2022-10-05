@@ -21,6 +21,7 @@ public class CameraMovementScript : MonoBehaviour
     public int currentpos = 1; // current position of camera - starts at grassland
     public float duration;
     public bool canClick = true;
+    public UnitUIScript ui;
 
     public void Start()
     {
@@ -55,12 +56,17 @@ public class CameraMovementScript : MonoBehaviour
                 buttons[1].gameObject.SetActive(false);
                 buttons[2].gameObject.SetActive(true);
                 buttons[3].gameObject.SetActive(false);
+                ui.unitButtons.SetActive(false);
+                ui.mineButtons.SetActive(true);
+
                 break;
                  case 1: //grass
                 buttons[0].gameObject.SetActive(false);
                 buttons[1].gameObject.SetActive(true);
                 buttons[2].gameObject.SetActive(false);
                 buttons[3].gameObject.SetActive(true);
+                ui.unitButtons.SetActive(true);
+                ui.mineButtons.SetActive(false);
                 break;
                  case 4: //mountain
                 buttons[0].gameObject.SetActive(true);
