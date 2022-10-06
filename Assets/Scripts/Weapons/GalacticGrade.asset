@@ -9,12 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2dece8c8d320e6e408ecd95ffd451cc4, type: 3}
+  m_Script: {fileID: 11500000, guid: 8203deef66e6fc4488d977b5c9e5ed69, type: 3}
   m_Name: GalacticGrade
   m_EditorClassIdentifier: 
-  name: Galactic-Grade Shooter
-  description: I mean, hey, it's expensive, but how else are we gonna defend against
-    other worldy beings??
+  name: Aerial Grade Shooter
+  description: hey, it's espensive, but how else are we gonna fight alien intruders?
   sprite: {fileID: -1765961156, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
   health: 0
   damage: 0

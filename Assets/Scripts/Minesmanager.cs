@@ -10,6 +10,7 @@ public class Minesmanager : MonoBehaviour
     public int resources;
     public int cache;
     public int rate;
+    public int initialRate;
     public int[] levels;
     private float timer;
     public float waitPeriod;
@@ -20,6 +21,7 @@ public class Minesmanager : MonoBehaviour
     public Button collectButton;
     public GameObject[] upgradeButtons;
     public bool[] upgradeCheck;
+    public SaveLoad save;
 
     public void Start()
     {
@@ -127,6 +129,8 @@ public class Minesmanager : MonoBehaviour
             rate += addRate;
             upgradeCheck[i] = true;
             UpgradeCheck();
+            save.Save();
+            
         }
         else
         {
@@ -144,6 +148,11 @@ public class Minesmanager : MonoBehaviour
             {
                 p.gameObject.SetActive(false);
                 b.gameObject.SetActive(false);
+            }
+            else
+            {
+                p.gameObject.SetActive(true);
+                b.gameObject.SetActive(true);
             }
         }
     }
