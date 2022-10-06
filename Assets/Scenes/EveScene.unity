@@ -268,6 +268,7 @@ GameObject:
   m_Component:
   - component: {fileID: 97387434}
   - component: {fileID: 97387433}
+  - component: {fileID: 97387435}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -288,6 +289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateIndex: 0
+  level: 0
   planningPanel: {fileID: 2042490943}
   wavePanel: {fileID: 1750785637}
   waveEndPanel: {fileID: 279274055}
@@ -306,6 +308,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &97387435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97387432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 936ef96a5b9f8da43abd153172c940f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mine: {fileID: 606482818}
+  gm: {fileID: 97387433}
 --- !u!1 &109956225
 GameObject:
   m_ObjectHideFlags: 0
@@ -3368,7 +3384,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b188fb0cac4b3e948a256176f678c7a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonText: {fileID: 1550072807}
+  arrowText: {fileID: 1550072807}
   isOpen: 0
   canClick: 1
   openPos: {x: -10, y: 0, z: 0}
@@ -3393,11 +3409,11 @@ MonoBehaviour:
   - {fileID: 11400000, guid: df833eceed4509341a0e033aa313d026, type: 2}
   - {fileID: 11400000, guid: 6561c7b109e83b64f954e530c02127d7, type: 2}
   - {fileID: 11400000, guid: 7467b641d625aaf46af3af0262278b4c, type: 2}
-  wepName: {fileID: 232580409}
+  prevName: {fileID: 232580409}
   wepDesc: {fileID: 1933694533}
   wepStats: {fileID: 701692622}
   upgradeDesc: {fileID: 924314595}
-  wepPreview: {fileID: 1687885187}
+  prevImg: {fileID: 1687885187}
   confirmPanel: {fileID: 890138595}
   gm: {fileID: 97387432}
 --- !u!1 &606482817
@@ -3433,6 +3449,7 @@ MonoBehaviour:
   resources: 0
   cache: 0
   rate: 5
+  initialRate: 5
   levels: 000000000000000000000000
   waitPeriod: 10
   duration: 0.2
@@ -3455,6 +3472,7 @@ MonoBehaviour:
   - {fileID: 454364292}
   - {fileID: 1842227641}
   upgradeCheck: 000000000000000000
+  save: {fileID: 97387435}
 --- !u!4 &606482819
 Transform:
   m_ObjectHideFlags: 0

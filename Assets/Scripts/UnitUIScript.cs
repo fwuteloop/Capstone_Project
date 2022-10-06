@@ -6,11 +6,12 @@ using TMPro;
 
 public class UnitUIScript : MonoBehaviour
 {
-    public TextMeshProUGUI buttonText;
+    public TextMeshProUGUI arrowText;
     public bool isOpen;
     public bool canClick = true;
     public Vector3 openPos, closedPos;
     public float duration;
+
     public Canvas c;
     public GameObject newWeapon;
     public GameObject unitPreviewPanel;
@@ -25,8 +26,8 @@ public class UnitUIScript : MonoBehaviour
     //0 better tools
     //1 more workers
     //2 minecarts
-    public TextMeshProUGUI wepName, wepDesc, wepStats, upgradeDesc;
-    public Image wepPreview;
+    public TextMeshProUGUI prevName, wepDesc, wepStats, upgradeDesc;
+    public Image prevImg;
     public GameObject confirmPanel;
     public GameObject gm;
 
@@ -67,11 +68,11 @@ public class UnitUIScript : MonoBehaviour
     {
         if (isOpen)
         {
-            buttonText.text = ">";
+            arrowText.text = ">";
         }
         else
         {
-            buttonText.text = "<";
+            arrowText.text = "<";
         }
     }
     public void OpenButtonFunction()
@@ -90,9 +91,9 @@ public class UnitUIScript : MonoBehaviour
         {
             var w = weapons[i];
             unitPreviewPanel.SetActive(true);
-            wepPreview.sprite = w.sprite;
+            prevImg.sprite = w.sprite;
             wepDesc.text = w.description;
-            wepName.text = w.name;
+            prevName.text = w.name;
             wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
             upgradeDesc.text = "";
         }
@@ -131,9 +132,9 @@ public class UnitUIScript : MonoBehaviour
         {
             var m = upgrades[i];
             unitPreviewPanel.SetActive(true);
-            wepPreview.sprite = m.icons[level];
+            prevImg.sprite = m.icons[level];
             upgradeDesc.text = m.description[level];
-            wepName.text = m.name;
+            prevName.text = m.name;
             wepDesc.text = "";
             wepStats.text = "";
         }

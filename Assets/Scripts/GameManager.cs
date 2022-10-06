@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public int stateIndex;
+    public int level;
     public GameObject planningPanel; // hold all UI for planning stage
     public GameObject wavePanel; // holds all UI for the wave start
     public GameObject waveEndPanel; // hold all the UI for the wave end
