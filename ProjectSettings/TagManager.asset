@@ -7,6 +7,7 @@ TagManager:
   - UProj
   - EProj
   - Enemy
+  - node
   layers:
   - Default
   - TransparentFX

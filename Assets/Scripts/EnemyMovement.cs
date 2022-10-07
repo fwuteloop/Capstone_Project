@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.Find("BASE").transform;
         seeker.StartPath(rb.position, target.position, OnPathComplete);
+
     }
 
     void OnPathComplete(Path p)
@@ -42,6 +43,7 @@ public class EnemyMovement : MonoBehaviour
         if(currentWayPoint >= basePath.vectorPath.Count)
         {
             reachedBase = true;
+            Debug.Log("game over");
             return;
         } else
         {

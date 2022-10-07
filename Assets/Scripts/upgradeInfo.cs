@@ -15,6 +15,6 @@ public class upgradeInfo : MonoBehaviour
         var p = b.gameObject.transform.Find("Price text");
         priceText = p.GetComponent<TextMeshProUGUI>();
         priceText.text = u.cost[index].ToString();
-        Debug.Log(u.cost[index]);
+        //Debug.Log(u.cost[index]);
     }
 }

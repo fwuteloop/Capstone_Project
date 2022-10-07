@@ -118,7 +118,7 @@ public class UnitUIScript : MonoBehaviour
                 break;
             case 1:
                 confirmPanel.SetActive(false);
-                gm.GetComponent<GameManager>().CheckStateFunction(1);
+                gm.GetComponent<UIManager>().CheckStateFunction(1);
                 break;
             case 2:
                 confirmPanel.SetActive(false);

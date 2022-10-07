@@ -6,7 +6,7 @@ using UnityEngine;
 public class SaveLoad : MonoBehaviour
 {
     public Minesmanager mine;
-    public GameManager gm;
+    public UIManager gm;
 
     public void Awake()
     {

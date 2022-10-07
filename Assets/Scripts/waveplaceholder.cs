@@ -10,7 +10,7 @@ public class waveplaceholder : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.R))
         {
-            gm.GetComponent<GameManager>().CheckStateFunction(2);
+            gm.GetComponent<UIManager>().CheckStateFunction(2);
         }
     }
 }
