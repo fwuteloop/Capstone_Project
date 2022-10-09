@@ -69,22 +69,7 @@ public class WeaponBehavior : MonoBehaviour
         {
             target = nearestEnemy;
         }
-       /* Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, enemyMask);
 
-        if (scroll.canFollow == false && scroll.isFollowing == false)
-        {
-            if (collider != null)
-            {
-                currentEnemy = collider.gameObject;
-                firing = true;
-            }
-            else
-            {
-                currentEnemy = null;
-                firing = false;
-            }
-
-        }*/
         StartCoroutine(DetectEnemies());
 
     }

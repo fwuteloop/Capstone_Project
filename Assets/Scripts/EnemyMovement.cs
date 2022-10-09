@@ -43,7 +43,6 @@ public class EnemyMovement : MonoBehaviour
         if(currentWayPoint >= basePath.vectorPath.Count)
         {
             reachedBase = true;
-            Debug.Log("game over");
             return;
         } else
         {

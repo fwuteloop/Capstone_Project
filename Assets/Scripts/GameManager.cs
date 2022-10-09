@@ -14,11 +14,16 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        currentLevel = 0;
+        currentLevel = 1;
     }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void GameOver()
+    {
+        Time.timeScale = 0;
     }
 }
