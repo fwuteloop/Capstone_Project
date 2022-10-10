@@ -6,7 +6,7 @@ using UnityEngine;
 public class SaveLoad : MonoBehaviour
 {
     public Minesmanager mine;
-    public UIManager gm;
+    public GameManager gm;
 
     public void Awake()
     {
@@ -25,7 +25,7 @@ public class SaveLoad : MonoBehaviour
         SaveData data = new SaveData();
         data.resources = mine.resources;
         data.rate = mine.rate;
-        data.level = gm.level;
+        data.level = gm.currentLevel;
         data.cache = mine.cache;
         for(int i = 0; i < 9; i++)
         {
@@ -49,7 +49,7 @@ public class SaveLoad : MonoBehaviour
 
             mine.resources = data.resources;
             mine.rate = data.rate;
-            gm.level = data.level;
+            gm.currentLevel = data.level;
             mine.cache = data.cache;
             for (int i = 0; i < 9; i++)
             {

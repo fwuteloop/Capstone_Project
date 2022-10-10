@@ -714,7 +714,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mine: {fileID: 606482818}
-  gm: {fileID: 97387433}
+  gm: {fileID: 0}
 --- !u!114 &97387436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2118,7 +2118,7 @@ GameObject:
   m_Component:
   - component: {fileID: 223092087}
   m_Layer: 0
-  m_Name: spawnpoint6
+  m_Name: lvl6spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -2137,7 +2137,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &230223069
 GameObject:
@@ -3238,7 +3238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 360760244}
   m_Layer: 0
-  m_Name: spawnpoint1
+  m_Name: lvl1spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -4986,7 +4986,7 @@ GameObject:
   m_Component:
   - component: {fileID: 530235127}
   m_Layer: 0
-  m_Name: spawnpoint2
+  m_Name: lvl2spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5017,7 +5017,7 @@ GameObject:
   m_Component:
   - component: {fileID: 545166188}
   m_Layer: 0
-  m_Name: spawnpoint4 (1)
+  m_Name: lvl5branch1
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -5036,7 +5036,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &549606745
 GameObject:
@@ -6150,12 +6150,12 @@ Transform:
   - {fileID: 530235127}
   - {fileID: 2111782069}
   - {fileID: 2062900082}
-  - {fileID: 1912727744}
-  - {fileID: 223092087}
-  - {fileID: 1866879392}
   - {fileID: 2001707182}
+  - {fileID: 1866879392}
+  - {fileID: 1912727744}
   - {fileID: 545166188}
   - {fileID: 2046661755}
+  - {fileID: 223092087}
   - {fileID: 1808567949}
   - {fileID: 804862143}
   m_Father: {fileID: 0}
@@ -8294,7 +8294,7 @@ GameObject:
   m_Component:
   - component: {fileID: 804862143}
   m_Layer: 0
-  m_Name: spawnpoint5 (2)
+  m_Name: lvl6branch2
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -10452,7 +10452,6 @@ MonoBehaviour:
   maxEnemyCount: 5
   spawnInterval: 2
   currentSpawnPoint: {fileID: 360760244}
-  currentLvlEnemies: []
   lvl1Enemies:
   - {fileID: 433048454854475412, guid: ed636d0b539587a4ebdc909fee34fd20, type: 3}
   - {fileID: 433048454854475412, guid: ed636d0b539587a4ebdc909fee34fd20, type: 3}
@@ -18878,7 +18877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1808567949}
   m_Layer: 0
-  m_Name: spawnpoint5 (1)
+  m_Name: lvl6branch1
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -19394,7 +19393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1866879392}
   m_Layer: 0
-  m_Name: spawnpoint2 (1)
+  m_Name: lvl4branch2
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -19413,7 +19412,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1868674931
 PrefabInstance:
@@ -19943,7 +19942,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1912727744}
   m_Layer: 0
-  m_Name: spawnpoint5
+  m_Name: lvl5spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -19962,7 +19961,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1914881455
 GameObject:
@@ -21009,7 +21008,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2001707182}
   m_Layer: 0
-  m_Name: spawnpoint2 (2)
+  m_Name: lvl4branch1
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -21028,7 +21027,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2026098637
 GameObject:
@@ -21180,7 +21179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2046661755}
   m_Layer: 0
-  m_Name: spawnpoint4 (2)
+  m_Name: lvl5branch2
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -21199,7 +21198,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 630979161}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &2049241221 stripped
 Transform:
@@ -21387,7 +21386,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2062900082}
   m_Layer: 0
-  m_Name: spawnpoint4
+  m_Name: lvl4spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
@@ -22172,7 +22171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2111782069}
   m_Layer: 0
-  m_Name: spawnpoint3
+  m_Name: lvl3spawn
   m_TagString: Untagged
   m_Icon: {fileID: 6519382022992737161, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
