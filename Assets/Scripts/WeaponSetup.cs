@@ -21,7 +21,7 @@ public class WeaponSetup : MonoBehaviour
     private Rigidbody2D rigidBody;
     private Scroll scroll;
 
-    private void Awake()
+    private void Start()
     {
         ValueSetup();
         ComponentSetup();
