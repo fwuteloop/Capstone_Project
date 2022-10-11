@@ -29,7 +29,8 @@ public class UnitUIScript : MonoBehaviour
     public TextMeshProUGUI prevName, wepDesc, wepStats, upgradeDesc;
     public Image prevImg;
     public GameObject confirmPanel;
-    public GameObject gm;
+    public UIManager uim;
+    public GameManager gm;
 
 
     // Universal UI stuff
@@ -91,11 +92,25 @@ public class UnitUIScript : MonoBehaviour
         {
             var w = weapons[i];
             unitPreviewPanel.SetActive(true);
-            prevImg.sprite = w.sprite;
-            wepDesc.text = w.description;
-            prevName.text = w.name;
-            wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
-            upgradeDesc.text = "";
+            if(i == 1 && gm.currentLevel < 3 || i == 2 && gm.currentLevel < 5 || i == 3 && gm.currentLevel < 6)
+            {
+                prevImg.sprite = w.sprite;
+                prevImg.GetComponent<Image>().color = Color.blue;
+                wepDesc.text = "";
+                prevName.text = w.name;
+                wepStats.text = "";
+                upgradeDesc.text = "Weapon unavailable.";
+            }
+            else
+            {
+                prevImg.sprite = w.sprite;
+                prevImg.GetComponent<Image>().color = Color.white;
+                wepDesc.text = w.description;
+                prevName.text = w.name;
+                wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
+                upgradeDesc.text = "";
+            }
+            
         }
         else
         {
@@ -118,7 +133,7 @@ public class UnitUIScript : MonoBehaviour
                 break;
             case 1:
                 confirmPanel.SetActive(false);
-                gm.GetComponent<UIManager>().CheckStateFunction(1);
+                uim.CheckStateFunction(1);
                 break;
             case 2:
                 confirmPanel.SetActive(false);
@@ -133,6 +148,7 @@ public class UnitUIScript : MonoBehaviour
             var m = upgrades[i];
             unitPreviewPanel.SetActive(true);
             prevImg.sprite = m.icons[level];
+            prevImg.GetComponent<SpriteRenderer>().color = Color.white;
             upgradeDesc.text = m.description[level];
             prevName.text = m.name;
             wepDesc.text = "";

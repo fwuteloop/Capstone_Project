@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         //waveManager.enabled = false;  
-        uIManager.CheckStateFunction(1); 
+        uIManager.CheckStateFunction(0); 
     }
     // Update is called once per frame
     void Update()

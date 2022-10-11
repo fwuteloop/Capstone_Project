@@ -4836,6 +4836,7 @@ MonoBehaviour:
   duration: 0.5
   canClick: 1
   ui: {fileID: 598112068}
+  gm: {fileID: 97387436}
 --- !u!1 &508343235
 GameObject:
   m_ObjectHideFlags: 0
@@ -5819,7 +5820,8 @@ MonoBehaviour:
   upgradeDesc: {fileID: 924314595}
   prevImg: {fileID: 1687885187}
   confirmPanel: {fileID: 890138595}
-  gm: {fileID: 97387432}
+  uim: {fileID: 97387433}
+  gm: {fileID: 97387436}
 --- !u!1 &606482817
 GameObject:
   m_ObjectHideFlags: 0

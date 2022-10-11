@@ -22,6 +22,7 @@ public class CameraMovementScript : MonoBehaviour
     public float duration;
     public bool canClick = true;
     public UnitUIScript ui;
+    public GameManager gm;
 
     public void Start()
     {
@@ -92,7 +93,12 @@ public class CameraMovementScript : MonoBehaviour
                 buttons[2].gameObject.SetActive(false);
                 buttons[3].gameObject.SetActive(false);
                 break;
-
+        }
+        if (currentpos == gm.currentLevel)
+        {
+            Debug.Log("current level reached");
+            buttons[1].gameObject.SetActive(false);
+            buttons[2].gameObject.SetActive(false);
         }
     }
     public void RightArrow()
