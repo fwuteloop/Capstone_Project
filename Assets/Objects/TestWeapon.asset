@@ -15,6 +15,6 @@ MonoBehaviour:
   name: testy test
   description: a very good test
   sprite: {fileID: 21300000, guid: c9ac2227ea02ba84f8e06e6402c3b03e, type: 3}
-  health: 9999999
+  health: 200
   damage: 10
   fireRate: 0.7

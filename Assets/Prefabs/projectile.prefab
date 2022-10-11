@@ -60,7 +60,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4537c5b16b1e483459252e6a43ec6785, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 11400000, guid: 3a8eade272fabc04ba8333bf6c553d3e, type: 2}
+  projectile: {fileID: 11400000, guid: a9ad3ca2d7718e645bfb1ca8463d8a22, type: 2}
   speed: 0
   sprite: {fileID: 0}
+  circleCollider: {fileID: 0}
   rigidBody2D: {fileID: 0}
