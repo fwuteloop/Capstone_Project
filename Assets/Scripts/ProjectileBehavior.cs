@@ -16,9 +16,10 @@ public class ProjectileBehavior: MonoBehaviour
      
         projectileSetup = GetComponent<ProjectileSetup>();
         if (target != null)
-            direction = (target.transform.position - transform.position).normalized * projectileSetup.speed;
+            direction = (target.transform.position - transform.position);
         else
-            Destroy(gameObject);
+            Debug.Log("no target");
+            //Destroy(gameObject);
 
         Destroy(gameObject, 20f);
     }
@@ -26,7 +27,7 @@ public class ProjectileBehavior: MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        projectileSetup.rigidBody2D.velocity = new Vector2(direction.x, direction.y) * Time.deltaTime;
+        projectileSetup.rigidBody2D.velocity = new Vector2(direction.x, direction.y) * Time.deltaTime * projectileSetup.speed;
 
         if (target == null)
             projectileSetup.circleCollider.enabled = false;

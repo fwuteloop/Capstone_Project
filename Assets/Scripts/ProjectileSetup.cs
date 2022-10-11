@@ -15,29 +15,32 @@ public class ProjectileSetup : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        ValueSetup();
-        ComponentSetup();
-    }
+      
 
-    void ValueSetup()
+    }
+    private void Start()
     {
-        speed = projectile.speed;
-        sprite = projectile.sprite;
+        ComponentSetup();
     }
 
     void ComponentSetup()
     {
+        Debug.Log("componentsetup");
         if (GetComponent<SpriteRenderer>() == null)
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         if (GetComponent<CircleCollider2D>() == null)
             circleCollider = gameObject.AddComponent<CircleCollider2D>();
         if (GetComponent<Rigidbody2D>() == null)
             rigidBody2D = gameObject.AddComponent<Rigidbody2D>();
+        sprite = projectile.sprite;
 
         circleCollider.isTrigger = true;
         circleCollider.radius = sprite.bounds.max.x;
         rigidBody2D.gravityScale = 0;
+      
         spriteRenderer.sprite = sprite;
         spriteRenderer.sortingOrder = 2;
+
+        speed = projectile.speed;
     }
 }
