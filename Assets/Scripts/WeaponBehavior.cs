@@ -10,6 +10,7 @@ public class WeaponBehavior : MonoBehaviour
 
     public float detectionDelay = .3f;
     public LayerMask enemyMask;
+    public string enemyTag = "Enemy";
 
     public LayerMask unitMask;
     public GameObject projectile;
@@ -17,7 +18,7 @@ public class WeaponBehavior : MonoBehaviour
 
     Scroll scroll;
     WeaponSetup weaponSetup;
-
+    GameObject target;
     void Start()
     {
         scroll = GetComponent<Scroll>();
@@ -30,9 +31,9 @@ public class WeaponBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (firing)
+        if (target != null)
         {
-            transform.right = currentEnemy.transform.position - transform.position;
+            transform.right = target.transform.position - transform.position;
             fireTimer += Time.deltaTime;
             if (fireTimer > weaponSetup.fireRate)
             {
@@ -51,22 +52,24 @@ public class WeaponBehavior : MonoBehaviour
     {
         yield return new WaitForSeconds(detectionDelay);
 
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, fireRadius, enemyMask);
-
-        if (scroll.canFollow == false && scroll.isFollowing == false)
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+        float shortestDistance = Mathf.Infinity;
+        GameObject nearestEnemy = null;
+        foreach(GameObject enemy in enemies)
         {
-            if (collider != null)
+            float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+            if(enemyDistance < shortestDistance)
             {
-                currentEnemy = collider.gameObject;
-                firing = true;
+                shortestDistance = enemyDistance;
+                nearestEnemy = enemy;
             }
-            else
-            {
-                currentEnemy = null;
-                firing = false;
-            }
-
         }
+
+        if(nearestEnemy != null && shortestDistance <= fireRadius)
+        {
+            target = nearestEnemy;
+        }
+
         StartCoroutine(DetectEnemies());
 
     }
@@ -76,7 +79,7 @@ public class WeaponBehavior : MonoBehaviour
         GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
         proj.tag = "UProj";
         proj.GetComponent<ProjectileBehavior>().damage = weaponSetup.damage;
-        proj.GetComponent<ProjectileBehavior>().target = currentEnemy;
+        proj.GetComponent<ProjectileBehavior>().target = target;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

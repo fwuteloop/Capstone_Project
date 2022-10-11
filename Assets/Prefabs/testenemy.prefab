@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 433048454854475437}
   m_Layer: 7
   m_Name: testenemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 7446658600289275709, guid: fbe297cd46f0f164693ea86a802f8506, type: 3}
+  fireTimer: 0
   unitMask:
     serializedVersion: 2
     m_Bits: 1024
@@ -115,3 +116,4 @@ MonoBehaviour:
   health: 0
   fireRate: 0
   longRange: 0
+  damage: 0

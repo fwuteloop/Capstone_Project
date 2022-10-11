@@ -8,12 +8,13 @@ public class WaveManager : MonoBehaviour
     public int currentEnemyCount;
     public int maxEnemyCount;
 
+    bool waveEnded;
+
     public float spawnInterval;
     float spawnTimer;
 
     public Transform currentSpawnPoint;
 
-    public GameObject[] currentLvlEnemies;
 
     public GameObject[] lvl1Enemies;
     public GameObject[] lvl2Enemies;
@@ -24,23 +25,23 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        StartCoroutine(SpawnEnemies());
     }
 
-    IEnumerator SpawnEnemies()
+    IEnumerator SpawnEnemies(GameObject[] enemyset)
     {
         yield return new WaitForSeconds(spawnInterval);
         for(int i = 0; i < maxEnemyCount; i++)
         {
-            if (currentEnemyCount < maxEnemyCount)
+            if (currentEnemyCount < maxEnemyCount && waveEnded == false)
             {
-                Instantiate(lvl1Enemies[Random.Range(0, currentLvlEnemies.Length)], currentSpawnPoint.position, Quaternion.identity);
+                Instantiate(enemyset[Random.Range(0, enemyset.Length)], currentSpawnPoint.position, Quaternion.identity);
                 yield return new WaitForSeconds(Random.Range(1.3f, 3.4f));
                 currentEnemyCount += 1;
                 i++;
             }
+            else
+                waveEnded = true;
         }
-        StartCoroutine(SpawnEnemies());
     }
+
 }

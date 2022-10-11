@@ -24,6 +24,7 @@ public class EnemyMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         target = GameObject.Find("BASE").transform;
         seeker.StartPath(rb.position, target.position, OnPathComplete);
+
     }
 
     void OnPathComplete(Path p)
