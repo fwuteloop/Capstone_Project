@@ -659,6 +659,7 @@ GameObject:
   - component: {fileID: 97387435}
   - component: {fileID: 97387436}
   - component: {fileID: 97387437}
+  - component: {fileID: 97387438}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -740,6 +741,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8c4b1afb03d85c45b4983f07999ceaa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &97387438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97387432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86910d3b04c856045a3712a9c4de1f0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedUnit: {fileID: 0}
+  unitUI: {fileID: 0}
+  plotMask:
+    serializedVersion: 2
+    m_Bits: 8
+  weapons:
+  - {fileID: 11400000, guid: 292522ebffd07a84d807a7f273baae0c, type: 2}
+  - {fileID: 11400000, guid: c7748cab5bc8f7547bb6ede40ba06995, type: 2}
+  - {fileID: 11400000, guid: 04d251f6ca67cf0448e5b3d25c1f684e, type: 2}
+  - {fileID: 11400000, guid: 89a96a0ca76f7b04a9927924b2c1e830, type: 2}
+  weaponHolder: {fileID: 1327700282542416884, guid: 07347e1ce03d10647b162010346629ec, type: 3}
 --- !u!1 &98967382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5810,6 +5834,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c7748cab5bc8f7547bb6ede40ba06995, type: 2}
   - {fileID: 11400000, guid: 04d251f6ca67cf0448e5b3d25c1f684e, type: 2}
   - {fileID: 11400000, guid: 89a96a0ca76f7b04a9927924b2c1e830, type: 2}
+  selectedWeapon: 0
   upgrades:
   - {fileID: 11400000, guid: df833eceed4509341a0e033aa313d026, type: 2}
   - {fileID: 11400000, guid: 6561c7b109e83b64f954e530c02127d7, type: 2}
@@ -5822,6 +5847,7 @@ MonoBehaviour:
   confirmPanel: {fileID: 890138595}
   uim: {fileID: 97387433}
   gm: {fileID: 97387436}
+  hasUnit: 0
 --- !u!1 &606482817
 GameObject:
   m_ObjectHideFlags: 0

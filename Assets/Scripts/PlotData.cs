@@ -7,9 +7,9 @@ public class PlotData : MonoBehaviour
     public GameObject myUnit;
 
     float unitHealth;
-    int unitType;
+    int unitInt;
 
-    BaseWeapon[] unitTypes;
+    public BaseWeapon unitType;
     private float detectionRadius;
     private int unitMask;
 

@@ -18,6 +18,7 @@ public class UnitUIScript : MonoBehaviour
     public GameObject unitButtons, mineButtons;
    public Sprite[] weaponSprites;
     public BaseWeapon[] weapons;
+    public int selectedWeapon;
     //0 - terra
     //1 - tundra
     //2 - aerial
@@ -31,7 +32,14 @@ public class UnitUIScript : MonoBehaviour
     public GameObject confirmPanel;
     public UIManager uim;
     public GameManager gm;
+    SelectPlot selectPlot;
 
+    public bool hasUnit;
+
+    private void Start()
+    {
+        selectPlot = GameObject.FindObjectOfType<SelectPlot>();
+    }
 
     // Universal UI stuff
     IEnumerator UIAnimator()
@@ -94,7 +102,7 @@ public class UnitUIScript : MonoBehaviour
             unitPreviewPanel.SetActive(true);
             if(i == 1 && gm.currentLevel < 3 || i == 2 && gm.currentLevel < 5 || i == 3 && gm.currentLevel < 6)
             {
-                prevImg.sprite = w.sprite;
+                prevImg.sprite = w.icon;
                 prevImg.GetComponent<Image>().color = Color.blue;
                 wepDesc.text = "";
                 prevName.text = w.name;
@@ -103,7 +111,7 @@ public class UnitUIScript : MonoBehaviour
             }
             else
             {
-                prevImg.sprite = w.sprite;
+                prevImg.sprite = w.icon;
                 prevImg.GetComponent<Image>().color = Color.white;
                 wepDesc.text = w.description;
                 prevName.text = w.name;
@@ -123,6 +131,8 @@ public class UnitUIScript : MonoBehaviour
         g.transform.SetParent(c.transform, false);
         g.GetComponent<Image>().sprite = weaponSprites[i];
         g.GetComponent<UIfollow>().index = i;
+        selectedWeapon = i;
+        hasUnit = true;
     }
     public void StartWaveButton(int i)
     {

@@ -7,9 +7,9 @@ public class BaseWeapon : ScriptableObject
 {
     public new string name;
     public string description;
-    public Sprite sprite;
+    public Sprite icon;
     public float health;
     public float damage;
     public float fireRate;
-
+    public Sprite sprite;
 }

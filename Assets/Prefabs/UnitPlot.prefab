@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6832294222593818056}
   - component: {fileID: 6832294222593818063}
   - component: {fileID: 6832294222593818057}
+  - component: {fileID: 5729702934294100540}
   m_Layer: 3
   m_Name: UnitPlot
   m_TagString: Untagged
@@ -111,3 +112,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &5729702934294100540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6832294222593818062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b058c32dc29ca34d8afbe9e0d7b1b58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myUnit: {fileID: 0}

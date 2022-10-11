@@ -22,10 +22,9 @@ public class WeaponBehavior : MonoBehaviour
     void Start()
     {
         scroll = GetComponent<Scroll>();
-        weaponSetup = GetComponent<WeaponSetup>();
+        weaponSetup = GetComponentInParent<WeaponSetup>();
         StartCoroutine(DetectEnemies());
-        unitMask = 10;
-        gameObject.layer = unitMask;
+        gameObject.layer = 10;
     }
 
     // Update is called once per frame

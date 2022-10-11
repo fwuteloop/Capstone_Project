@@ -38,21 +38,21 @@ public class WeaponSetup : MonoBehaviour
 
     void ComponentSetup()
     {
-        if (GetComponent<SpriteRenderer>() == null)
-            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
+        /*if (GetComponent<SpriteRenderer>() == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();*/
         if (GetComponent<BoxCollider2D>() == null)
             boxCollider = gameObject.AddComponent<BoxCollider2D>();
         if (GetComponent<Rigidbody2D>() == null)
             rigidBody = gameObject.AddComponent<Rigidbody2D>();
 
-        spriteRenderer.sprite = sprite;
-        spriteRenderer.sortingOrder = 1;
+        //spriteRenderer.sprite = sprite;
+        //spriteRenderer.sortingOrder = 4;
         boxCollider.size = new Vector2(sprite.bounds.size.x, sprite.bounds.size.y);
         boxCollider.isTrigger = true;
         scroll = GetComponent<Scroll>();
 
         rigidBody.bodyType = RigidbodyType2D.Kinematic;
-
+        rigidBody.gravityScale = 0;
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }

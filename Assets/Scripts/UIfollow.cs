@@ -22,6 +22,7 @@ public class UIfollow : MonoBehaviour
         r.position = Input.mousePosition + offset;
         if(Input.GetMouseButtonUp(0))
         {
+
             Destroy(gameObject);
         }
     }
