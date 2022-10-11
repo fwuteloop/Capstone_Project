@@ -16,6 +16,7 @@ public class UnitUIScript : MonoBehaviour
     public GameObject newWeapon;
     public GameObject unitPreviewPanel;
     public GameObject unitButtons, mineButtons;
+    public GameObject[] locks;
    public Sprite[] weaponSprites;
     public BaseWeapon[] weapons;
     public int selectedWeapon;
@@ -27,18 +28,20 @@ public class UnitUIScript : MonoBehaviour
     //0 better tools
     //1 more workers
     //2 minecarts
-    public TextMeshProUGUI prevName, wepDesc, wepStats, upgradeDesc;
-    public Image prevImg;
+    public TextMeshProUGUI prevName, wepDesc, wepStats, upgradeDesc, priceText;
+    public Image prevImg, resourcesImg;
     public GameObject confirmPanel;
     public UIManager uim;
     public GameManager gm;
     SelectPlot selectPlot;
+    Minesmanager mines;
 
     public bool hasUnit;
 
     private void Start()
     {
         selectPlot = GameObject.FindObjectOfType<SelectPlot>();
+        mines = GameObject.FindObjectOfType<Minesmanager>();
     }
 
     // Universal UI stuff
@@ -94,6 +97,21 @@ public class UnitUIScript : MonoBehaviour
         }
     }
     // Just Unit Stuff
+    public void LockCheck(int i)
+    {
+        switch(i)
+        {
+            case 3:
+                locks[0].SetActive(false);
+                break;
+            case 5:
+                locks[1].SetActive(false);
+                break;
+            case 6:
+                locks[2].SetActive(false);
+                break;
+        }
+    }
     public void UnitPreviewCheck(bool canShow, int i)
     {
         if (canShow)
@@ -107,6 +125,8 @@ public class UnitUIScript : MonoBehaviour
                 wepDesc.text = "";
                 prevName.text = w.name;
                 wepStats.text = "";
+                priceText.text = "";
+                resourcesImg.gameObject.SetActive(false);
                 upgradeDesc.text = "Weapon unavailable.";
             }
             else
@@ -116,6 +136,8 @@ public class UnitUIScript : MonoBehaviour
                 wepDesc.text = w.description;
                 prevName.text = w.name;
                 wepStats.text = "Health: " + w.health + "\nDamage: " + w.damage + "\nFire Rate: " + w.fireRate;
+                resourcesImg.gameObject.SetActive(true);
+                priceText.text = w.price.ToString();
                 upgradeDesc.text = "";
             }
             
@@ -133,6 +155,7 @@ public class UnitUIScript : MonoBehaviour
         g.GetComponent<UIfollow>().index = i;
         selectedWeapon = i;
         hasUnit = true;
+        
     }
     public void StartWaveButton(int i)
     {
@@ -163,6 +186,7 @@ public class UnitUIScript : MonoBehaviour
             prevName.text = m.name;
             wepDesc.text = "";
             wepStats.text = "";
+            priceText.text = "";
         }
         else
         {

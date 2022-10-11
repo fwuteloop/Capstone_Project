@@ -101,6 +101,7 @@ public class CameraMovementScript : MonoBehaviour
             buttons[2].gameObject.SetActive(false);
         }
     }
+
     public void RightArrow()
     {
         if(currentpos < 6 && canClick)

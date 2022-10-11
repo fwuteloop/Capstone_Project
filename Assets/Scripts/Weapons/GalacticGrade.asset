@@ -20,3 +20,4 @@ MonoBehaviour:
   fireRate: 0
   sprite: {fileID: 1282160, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
   bottom: {fileID: -1260710464, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  price: 300

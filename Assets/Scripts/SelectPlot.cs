@@ -11,9 +11,12 @@ public class SelectPlot : MonoBehaviour
     public BaseWeapon[] weapons;
 
     public GameObject weaponHolder;
+
+    public Minesmanager mines;
     private void Start()
     {
         unitUI = GameObject.FindObjectOfType<UnitUIScript>();
+        mines = GameObject.FindObjectOfType < Minesmanager>();
     }
     void Update()
     {
@@ -21,8 +24,7 @@ public class SelectPlot : MonoBehaviour
         RaycastHit2D hitData = Physics2D.Raycast(new Vector2(worldPosition.x, worldPosition.y), Vector2.zero, 0, plotMask);
         if (hitData && Input.GetMouseButtonDown(0) && unitUI.hasUnit == true)
         {
-            selectedUnit = hitData.transform.gameObject;
-            SpawnWeapon(selectedUnit.transform.position);
+            SpawnWeapon(hitData.transform.position);
             unitUI.hasUnit = false;
         }
 
@@ -31,6 +33,8 @@ public class SelectPlot : MonoBehaviour
     public void SpawnWeapon(Vector3 location)
     {
         GameObject w = Instantiate(weaponHolder, location, Quaternion.identity);
-        w.GetComponent<WeaponSetup>().weapon = weapons[unitUI.selectedWeapon];
+        BaseWeapon bw = weapons[unitUI.selectedWeapon];
+        w.GetComponent<WeaponSetup>().weapon = bw;
+        mines.resources -= bw.price; // money is only spent when weapon is placed down
     }
 }
