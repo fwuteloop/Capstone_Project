@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Aerial Grade Shooter
   description: hey, it's espensive, but how else are we gonna fight alien intruders?
-  icon: {fileID: -1765961156, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  icon: {fileID: -207767748, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
   health: 0
   damage: 0
   fireRate: 0
-  sprite: {fileID: 1808481487, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  sprite: {fileID: 1282160, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  bottom: {fileID: -1260710464, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}

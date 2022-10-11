@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: ' terra Grade Shooter'
   description: Can be used in moderate climate conditions.
-  icon: {fileID: 83111495, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  icon: {fileID: 480777700, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
   health: 200
   damage: 10
   fireRate: 2
-  sprite: {fileID: -661167796, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  sprite: {fileID: 1612770128, guid: ed7dad3ef7844b34a8e2821146b82775, type: 3}
+  bottom: {fileID: 0}

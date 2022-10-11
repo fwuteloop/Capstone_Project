@@ -116,7 +116,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: terra grade icon
+      name: terra icon
       rect:
         serializedVersion: 2
         x: 17
@@ -124,35 +124,35 @@ TextureImporter:
         width: 445
         height: 399
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 851ad55678367e547ac4d7b138708bd5
-      internalID: 83111495
+      spriteID: 7bc6cc7d5f468b04f87036211f361dd0
+      internalID: 480777700
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: terra grade ingame
+      name: terra ingame
       rect:
         serializedVersion: 2
-        x: 614
-        y: 2287
-        width: 177
-        height: 377
+        x: 536
+        y: 2387
+        width: 377
+        height: 175
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a88934b1d5e83264b8fb58fa4bbe1663
-      internalID: -661167796
+      spriteID: 1818330b77f57ac4bb2a295152629549
+      internalID: 1612770128
       vertices: []
       indices: 
       edges: []
@@ -166,14 +166,14 @@ TextureImporter:
         width: 262
         height: 261
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8c2f5e6cbf80dab45bc4305ce4426c79
-      internalID: -2120256300
+      spriteID: c5fd43373adb3a743b3752901529708a
+      internalID: 175994465
       vertices: []
       indices: 
       edges: []
@@ -187,14 +187,14 @@ TextureImporter:
         width: 445
         height: 399
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c99dd2c60a680214899b385276a150a9
-      internalID: 1766444819
+      spriteID: ad5441c64c46d0a4c91b88d7e370101f
+      internalID: -868817308
       vertices: []
       indices: 
       edges: []
@@ -203,25 +203,25 @@ TextureImporter:
       name: tundra ingame
       rect:
         serializedVersion: 2
-        x: 666
-        y: 1872
-        width: 176
-        height: 378
+        x: 564
+        y: 1972
+        width: 379
+        height: 176
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e7662e4db48720542acda6b24f6ba5e1
-      internalID: -601856741
+      spriteID: 22ae7c14e3f87c841a6b39666efa1fc4
+      internalID: -1300581257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aerial rotate
+      name: aerial ingame
       rect:
         serializedVersion: 2
         x: 38
@@ -229,35 +229,35 @@ TextureImporter:
         width: 445
         height: 240
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 74cbcabd1f8daab44aa4e97b2e4a10e3
-      internalID: -737040788
+      spriteID: 183978497af44cd41a1964a2e3a5af26
+      internalID: -1716442983
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: galactic rotate
+      name: galactic ingame
       rect:
         serializedVersion: 2
         x: 612
         y: 1563
         width: 393
-        height: 246
+        height: 240
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 56c9a0a781f128b4f9439e27dfaa98f3
-      internalID: 1808481487
+      spriteID: 2b574e19cb155a84a9dac476425c0cd3
+      internalID: 1282160
       vertices: []
       indices: 
       edges: []
@@ -266,25 +266,25 @@ TextureImporter:
       name: gun sprites_7
       rect:
         serializedVersion: 2
-        x: 800
-        y: 1752
+        x: 983
+        y: 1822
         width: 13
         height: 42
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5f55271f04fb5a64e9a9876fed2dd3d1
-      internalID: -842570279
+      spriteID: 3174193ba8255b1469b793787f9e18c1
+      internalID: 1080948724
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aeiral base
+      name: areial base
       rect:
         serializedVersion: 2
         x: 53
@@ -292,14 +292,14 @@ TextureImporter:
         width: 325
         height: 364
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a2db7cf9a6e38e849916f3c00a8d01ce
-      internalID: 291118429
+      spriteID: d997ebecc2c2fce4aa4c56f58364fe43
+      internalID: -743177337
       vertices: []
       indices: 
       edges: []
@@ -313,14 +313,14 @@ TextureImporter:
         width: 69
         height: 141
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ad291e0a2b6af824ab33f3073e6dce94
-      internalID: 1867466033
+      spriteID: aa600507771cce14cab7381c99c2e814
+      internalID: -1260710464
       vertices: []
       indices: 
       edges: []
@@ -334,14 +334,14 @@ TextureImporter:
         width: 392
         height: 324
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 59c340be3775a9e4caa4d24a260a725f
-      internalID: -1765961156
+      spriteID: fc10344e07ceec64aaa3f70e56154110
+      internalID: -207767748
       vertices: []
       indices: 
       edges: []
@@ -350,25 +350,25 @@ TextureImporter:
       name: gun sprites_11
       rect:
         serializedVersion: 2
-        x: 832
-        y: 1219
-        width: 13
-        height: 42
+        x: 1253
+        y: 1250
+        width: 25
+        height: 77
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4e7c98d1674491b4294cd0e3fbea2060
-      internalID: -183984265
+      spriteID: ffaec2e9cad5bfa438b25595b6132bc7
+      internalID: 268158843
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: aerial icon
+      name: earial icon
       rect:
         serializedVersion: 2
         x: 128
@@ -376,14 +376,14 @@ TextureImporter:
         width: 444
         height: 441
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9cf3896121a988b4a99958c6279eb6a2
-      internalID: 903326751
+      spriteID: df2c8190db20e2a44924042c7b8bf811
+      internalID: -672849993
       vertices: []
       indices: 
       edges: []
@@ -399,19 +399,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      resources icon: -2120256300
-      tundra icon: 1766444819
-      aeiral base: 291118429
-      galactic rotate: 1808481487
-      gun sprites_11: -183984265
-      terra grade ingame: -661167796
-      aerial rotate: -737040788
-      aerial icon: 903326751
-      gun sprites_7: -842570279
-      tundra ingame: -601856741
-      terra grade icon: 83111495
-      galactic base: 1867466033
-      galactic icon: -1765961156
+      resources icon: 175994465
+      tundra icon: -868817308
+      gun sprites_11: 268158843
+      terra ingame: 1612770128
+      earial icon: -672849993
+      terra icon: 480777700
+      aerial ingame: -1716442983
+      gun sprites_7: 1080948724
+      tundra ingame: -1300581257
+      galactic base: -1260710464
+      galactic icon: -207767748
+      areial base: -743177337
+      galactic ingame: 1282160
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

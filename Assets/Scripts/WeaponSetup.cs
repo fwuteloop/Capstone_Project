@@ -12,6 +12,9 @@ public class WeaponSetup : MonoBehaviour
     public float damage;
     public float fireRate;
 
+    private GameObject top;
+    private GameObject bottom;
+
     public Sprite sprite;
     private BoxCollider2D boxCollider;
     private SpriteRenderer spriteRenderer;
@@ -22,6 +25,7 @@ public class WeaponSetup : MonoBehaviour
     {
         ValueSetup();
         ComponentSetup();
+        SpriteSetUp();
     }
 
     void ValueSetup()
@@ -29,7 +33,7 @@ public class WeaponSetup : MonoBehaviour
         name = weapon.name;
         description = weapon.description;
         sprite = weapon.sprite;
-
+        
         health = weapon.health;
         damage = weapon.damage;
         fireRate = weapon.fireRate;
@@ -38,8 +42,8 @@ public class WeaponSetup : MonoBehaviour
 
     void ComponentSetup()
     {
-        /*if (GetComponent<SpriteRenderer>() == null)
-            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();*/
+        if (GetComponent<SpriteRenderer>() == null)
+            spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         if (GetComponent<BoxCollider2D>() == null)
             boxCollider = gameObject.AddComponent<BoxCollider2D>();
         if (GetComponent<Rigidbody2D>() == null)
@@ -54,5 +58,14 @@ public class WeaponSetup : MonoBehaviour
         rigidBody.bodyType = RigidbodyType2D.Kinematic;
         rigidBody.gravityScale = 0;
         rigidBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+    }
+
+    void SpriteSetUp()
+    {
+        transform.Find("Weapon").GetComponent<SpriteRenderer>().sprite = weapon.sprite;
+        if (weapon.bottom != null)
+        {
+            transform.Find("Base").GetComponent<SpriteRenderer>().sprite = weapon.bottom;
+        }
     }
 }

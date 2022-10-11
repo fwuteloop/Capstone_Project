@@ -12,4 +12,5 @@ public class BaseWeapon : ScriptableObject
     public float damage;
     public float fireRate;
     public Sprite sprite;
+    public Sprite bottom;
 }
