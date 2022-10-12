@@ -7,6 +7,7 @@ public class SaveLoad : MonoBehaviour
 {
     public Minesmanager mine;
     public GameManager gm;
+    public PlotData[] plots;
 
     public void Awake()
     {
@@ -31,7 +32,12 @@ public class SaveLoad : MonoBehaviour
         {
             data.mineUpgrades[i] = mine.upgradeCheck[i];
         }
-
+        for (int i = 0; i < 40; i++)
+        {
+            data.isOccupied[i] = plots[i].isOccupied;
+            data.unitType[i] = plots[i].unitIndex;
+            data.weaponHealth[i] = plots[i].health;
+        }
         //need to add weap locations. health, and base health
 
         string json = JsonUtility.ToJson(data);
@@ -54,6 +60,12 @@ public class SaveLoad : MonoBehaviour
             for (int i = 0; i < 9; i++)
             {
                 mine.upgradeCheck[i] = data.mineUpgrades[i];
+            }
+            for (int i = 0; i < 40; i++)
+            {
+                plots[i].isOccupied = data.isOccupied[i];
+                plots[i].unitIndex = data.unitType[i];
+                plots[i].health = data.weaponHealth[i];
             }
             //need to add weap locations. health, and base health
             mine.UpgradeCheck();

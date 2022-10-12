@@ -124,4 +124,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b058c32dc29ca34d8afbe9e0d7b1b58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: 0
+  unitIndex: 0
   myUnit: {fileID: 0}
+  weaponPrefab: {fileID: 1327700282542416884, guid: 07347e1ce03d10647b162010346629ec, type: 3}
+  weapons:
+  - {fileID: 11400000, guid: 292522ebffd07a84d807a7f273baae0c, type: 2}
+  - {fileID: 11400000, guid: c7748cab5bc8f7547bb6ede40ba06995, type: 2}
+  - {fileID: 11400000, guid: 04d251f6ca67cf0448e5b3d25c1f684e, type: 2}
+  - {fileID: 11400000, guid: 89a96a0ca76f7b04a9927924b2c1e830, type: 2}
+  isOccupied: 0

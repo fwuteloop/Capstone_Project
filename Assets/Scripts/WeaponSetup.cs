@@ -20,9 +20,11 @@ public class WeaponSetup : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Rigidbody2D rigidBody;
     private Scroll scroll;
+    PlotData plot;
 
     private void Start()
     {
+        plot = transform.parent.GetComponent < PlotData >();
         ValueSetup();
         ComponentSetup();
         SpriteSetUp();
@@ -34,7 +36,7 @@ public class WeaponSetup : MonoBehaviour
         description = weapon.description;
         sprite = weapon.sprite;
         
-        health = weapon.health;
+        plot.health = weapon.health;
         damage = weapon.damage;
         fireRate = weapon.fireRate;
 

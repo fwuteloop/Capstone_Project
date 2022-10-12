@@ -6,7 +6,8 @@ public class SaveData
     public int level;
     public int cache;
     public bool[] mineUpgrades = new bool[9];
-    public int[] unitLocal;
-    public int[] weaponHealth;
+    public bool[] isOccupied = new bool[40];
+    public int[] unitType = new int[40];
+    public float[] weaponHealth = new float[40];
     public int[] baseHealth;
 }

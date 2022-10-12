@@ -4,46 +4,31 @@ using UnityEngine;
 
 public class PlotData : MonoBehaviour
 {
+    public float health;
+    public int unitIndex;
     public GameObject myUnit;
-
-    float unitHealth;
-    int unitInt;
-
-    public BaseWeapon unitType;
-    private float detectionRadius;
-    private int unitMask;
-
-    // Start is called before the first frame update
-    void Start()
+    public GameObject weaponPrefab;
+    public BaseWeapon[] weapons;
+    public bool isOccupied;
+    public GameObject infoPanel;
+    public WeaponInfoUIScript ui;
+    public void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(IsOccupied())
+        if(isOccupied && myUnit == null)
         {
-            StoreValue();
+            myUnit = Instantiate(weaponPrefab);
+            myUnit.transform.SetParent(gameObject.transform);
+            myUnit.GetComponent<WeaponSetup>().weapon = weapons[unitIndex];
         }
-
     }
-
-    void StoreValue()
+    public void ActivatePanel()
     {
-        unitHealth = myUnit.GetComponent<WeaponSetup>().health;
+        ui.wepName = weapons[unitIndex].name;
+        ui.currentHealth = health;
+        ui.fullHealth = weapons[unitIndex].health;
+        ui.currentPlotData = GetComponent<PlotData>();
+        //Debug.Log("mouse over plot");
+    }
 
-    }
-    bool IsOccupied()
-    {
-        Collider2D collider = Physics2D.OverlapCircle(transform.position, detectionRadius, unitMask);
-        if (collider != null)
-        {
-            myUnit = collider.gameObject;
-            return true;
-        }
-        else
-            return false;
-    }
 
 }

@@ -19,10 +19,12 @@ public class WeaponBehavior : MonoBehaviour
     Scroll scroll;
     WeaponSetup weaponSetup;
     GameObject target;
+    PlotData plot;
     void Start()
     {
         scroll = GetComponent<Scroll>();
         weaponSetup = GetComponentInParent<WeaponSetup>();
+        plot = transform.parent.GetComponent<PlotData>();
         StartCoroutine(DetectEnemies());
         gameObject.layer = 10;
     }
@@ -85,7 +87,8 @@ public class WeaponBehavior : MonoBehaviour
     {
         if(collision.gameObject.tag == "EProj")
         {
-            weaponSetup.health -= collision.gameObject.GetComponent<ProjectileBehavior>().damage;
+            Debug.Log("ouch");
+            plot.health -= collision.gameObject.GetComponent<ProjectileBehavior>().damage;
         }
     }
 }

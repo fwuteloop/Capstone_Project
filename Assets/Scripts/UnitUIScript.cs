@@ -67,10 +67,10 @@ public class UnitUIScript : MonoBehaviour
             t = Mathf.Sin(t * Mathf.PI * .5f);
             GetComponent<RectTransform>().anchoredPosition = Vector3.Lerp(start, target, t);
             time += Time.deltaTime;
-            Debug.Log("still running");
+            //Debug.Log("still running");
             yield return null;
         }
-        Debug.Log("done running");
+        //Debug.Log("done running");
         GetComponent<RectTransform>().anchoredPosition = target;
         CheckButtonFunction();
         canClick = true;

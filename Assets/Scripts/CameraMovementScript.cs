@@ -96,7 +96,7 @@ public class CameraMovementScript : MonoBehaviour
         }
         if (currentpos == gm.currentLevel)
         {
-            Debug.Log("current level reached");
+            //Debug.Log("current level reached");
             buttons[1].gameObject.SetActive(false);
             buttons[2].gameObject.SetActive(false);
         }

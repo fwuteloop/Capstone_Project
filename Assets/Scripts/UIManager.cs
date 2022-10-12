@@ -37,14 +37,14 @@ public class UIManager : MonoBehaviour
         planningPanel.SetActive(true);
         wavePanel.SetActive(false);
         waveEndPanel.SetActive(false);
-        Debug.Log("planning");
+        //Debug.Log("planning");
     }
     public void WaveSetUp()
     {
         planningPanel.SetActive(false);
         wavePanel.SetActive(true);
         waveEndPanel.SetActive(false);
-        Debug.Log("wave started");
+        //Debug.Log("wave started");
     }
 
     public void WaveEnd()
@@ -52,12 +52,12 @@ public class UIManager : MonoBehaviour
         planningPanel.SetActive(false);
         wavePanel.SetActive(false);
         waveEndPanel.SetActive(true);
-        Debug.Log("wave end");
+        //Debug.Log("wave end");
     }
 
     public void GameOver()
     {
-        Debug.Log("game over");
+        //Debug.Log("game over");
         gameOverPanel.SetActive(true);
         gameOverText.text = gameOverString;
 
