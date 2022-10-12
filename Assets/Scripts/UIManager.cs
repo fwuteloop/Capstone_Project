@@ -42,7 +42,6 @@ public class UIManager : MonoBehaviour
     public void WaveSetUp()
     {
         planningPanel.SetActive(false);
-        wavePanel.SetActive(true);
         waveEndPanel.SetActive(false);
         //Debug.Log("wave started");
     }

@@ -25,7 +25,7 @@ public class ProjectileSetup : MonoBehaviour
 
     void ComponentSetup()
     {
-        Debug.Log("componentsetup");
+        //Debug.Log("componentsetup");
         if (GetComponent<SpriteRenderer>() == null)
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         if (GetComponent<CircleCollider2D>() == null)

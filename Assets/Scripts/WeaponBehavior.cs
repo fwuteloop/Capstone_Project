@@ -6,7 +6,7 @@ public class WeaponBehavior : MonoBehaviour
 {
     public float fireTimer;
     public int fireRadius;
-    public bool firing;
+    public bool isDetecting;
 
     public float detectionDelay = .3f;
     public LayerMask enemyMask;
@@ -25,9 +25,10 @@ public class WeaponBehavior : MonoBehaviour
     {
         scroll = GetComponent<Scroll>();
         weaponSetup = GetComponentInParent<WeaponSetup>();
+       
         var p = transform.parent;
         plot = p.transform.parent.GetComponent<PlotData>();
-        StartCoroutine(DetectEnemies());
+        //StartCoroutine(DetectEnemies());
         gameObject.layer = 10;
     }
 
@@ -47,6 +48,7 @@ public class WeaponBehavior : MonoBehaviour
 
         if (plot.health <= 0)
         {
+            StopAllCoroutines();
             transform.eulerAngles = new Vector3(0, 0, 90);
             brokenAnimate.SetActive(true);
         }
@@ -55,37 +57,45 @@ public class WeaponBehavior : MonoBehaviour
             brokenAnimate.SetActive(false);
         }
 
-        Debug.Log(plot.health);
+        DetectEnemies();
+        //Debug.Log(plot.health);
 
     }
 
-    IEnumerator DetectEnemies()
+    void DetectEnemies()
     {
         if (plot.health > 0)
         {
-            yield return new WaitForSeconds(detectionDelay);
+            isDetecting = true;
+            //Debug.Log("i should be detecting");
 
-            GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
-            float shortestDistance = Mathf.Infinity;
-            GameObject nearestEnemy = null;
-            foreach (GameObject enemy in enemies)
+            float delayTimer = 0;
+            delayTimer += Time.deltaTime;
+
+            if (delayTimer < detectionDelay)
             {
-                float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
-                if (enemyDistance < shortestDistance)
+
+                GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
+                float shortestDistance = Mathf.Infinity;
+                GameObject nearestEnemy = null;
+
+                foreach (GameObject enemy in enemies)
                 {
-                    shortestDistance = enemyDistance;
-                    nearestEnemy = enemy;
+                    float enemyDistance = Vector3.Distance(transform.position, enemy.transform.position);
+                    if (enemyDistance < shortestDistance)
+                    {
+                        shortestDistance = enemyDistance;
+                        nearestEnemy = enemy;
+                    }
+                }
+
+                if (nearestEnemy != null && shortestDistance <= fireRadius)
+                {
+                    target = nearestEnemy;
                 }
             }
 
-            if (nearestEnemy != null && shortestDistance <= fireRadius)
-            {
-                target = nearestEnemy;
-            }
-
         }
-
-        StartCoroutine(DetectEnemies());
 
     }
 
@@ -97,12 +107,5 @@ public class WeaponBehavior : MonoBehaviour
         proj.GetComponent<ProjectileBehavior>().target = target;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.gameObject.tag == "EProj")
-        {
-            Debug.Log("ouch");
-            plot.health -= collision.gameObject.GetComponent<ProjectileBehavior>().damage;
-        }
-    }
+
 }

@@ -14,7 +14,10 @@ public class WeaponInfoUIScript : MonoBehaviour, IPointerExitHandler
     public GameObject repairBtn;
     public TextMeshProUGUI nametxt, healthtxt;
     public PlotData currentPlotData;
-
+    private void Start()
+    {
+        gameObject.SetActive(false);
+    }
     public void Update()
     {
         nametxt.text = wepName;

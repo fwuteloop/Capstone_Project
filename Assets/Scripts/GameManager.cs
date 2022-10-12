@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public int currentLevel;
     UIManager uIManager;
-    WaveManager waveManager;
+    WaveSpawner waveSpawner;
     CameraMovementScript cm;
     SaveLoad save;
     UnitUIScript unitUI;
@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         uIManager = GetComponent<UIManager>();
-        waveManager = GameObject.FindObjectOfType<WaveManager>();
+        waveSpawner = GameObject.FindObjectOfType<WaveSpawner>();
         save = GetComponent<SaveLoad>();
         cm = Camera.main.GetComponent<CameraMovementScript>();
         unitUI = GameObject.FindObjectOfType<UnitUIScript>();
@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     public void LevelCheck()
     {
+        currentLevel += 1;
         cm.ButtonCheckFunction(cm.currentpos);
         unitUI.LockCheck(currentLevel);
     }

@@ -70,4 +70,13 @@ public class WeaponSetup : MonoBehaviour
             transform.Find("Base").GetComponent<SpriteRenderer>().sprite = weapon.bottom;
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "EProj")
+        {
+            //Debug.Log("ouch");
+            plot.health -= collision.gameObject.GetComponent<ProjectileBehavior>().damage;
+        }
+    }
 }

@@ -15,9 +15,12 @@ public class EnemyBehavior : MonoBehaviour
     float fireRadius = 10;
 
     public bool firing;
+
+    WaveSpawner waveSpawner;
     // Start is called before the first frame update
     void Start()
     {
+        waveSpawner = GameObject.FindObjectOfType<WaveSpawner>();
         enemyValues = GetComponent<EnemySetup>();
         enemyMovement = GetComponent<EnemyMovement>();
         StartCoroutine(DetectUnits());
@@ -39,7 +42,10 @@ public class EnemyBehavior : MonoBehaviour
         }
 
         if (enemyValues.health < 0)
+        {
+            waveSpawner.aliveEnemies.Remove(gameObject);
             Destroy(gameObject);
+        }
     }
 
     IEnumerator DetectUnits()
