@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
         currentLevel += 1;
         cm.ButtonCheckFunction(cm.currentpos);
         unitUI.LockCheck(currentLevel);
+        waveSpawner.NewLevel(currentLevel);
+        save.Save();
     }
 
     public void GameOver()

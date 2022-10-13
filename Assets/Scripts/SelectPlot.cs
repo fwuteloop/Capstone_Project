@@ -50,14 +50,18 @@ public class SelectPlot : MonoBehaviour
     }
     public void SpawnWeapon(Vector3 location, GameObject plot)
     {
-        GameObject w = Instantiate(weaponHolder, location, Quaternion.identity);
-        w.transform.SetParent(plot.transform);
         BaseWeapon bw = weapons[unitUI.selectedWeapon];
-        w.GetComponent<WeaponSetup>().weapon = bw;
-        var p = plot.GetComponent<PlotData>();
-        p.unitIndex = unitUI.selectedWeapon;
-        p.isOccupied = true;
+
+        GameObject w = Instantiate(weaponHolder, location, Quaternion.identity);
+            w.transform.SetParent(plot.transform);
+
+            w.GetComponent<WeaponSetup>().weapon = bw;
+            var p = plot.GetComponent<PlotData>();
+            p.myUnit = w;
+            p.unitIndex = unitUI.selectedWeapon;
+            p.isOccupied = true;
+
+
         
-        mines.resources -= bw.price; // money is only spent when weapon is placed down
     }
 }

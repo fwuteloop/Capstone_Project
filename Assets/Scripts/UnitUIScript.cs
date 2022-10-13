@@ -31,6 +31,7 @@ public class UnitUIScript : MonoBehaviour
     public TextMeshProUGUI prevName, wepDesc, wepStats, upgradeDesc, priceText;
     public Image prevImg, resourcesImg;
     public GameObject confirmPanel;
+    public GameObject unavailableIcon;
     public UIManager uim;
     public GameManager gm;
     SelectPlot selectPlot;
@@ -149,12 +150,21 @@ public class UnitUIScript : MonoBehaviour
     }
     public void WeaponButton(int i)
     {
-        var g = Instantiate(newWeapon, transform.position, Quaternion.identity);
-        g.transform.SetParent(c.transform, false);
-        g.GetComponent<Image>().sprite = weaponSprites[i];
-        g.GetComponent<UIfollow>().index = i;
-        selectedWeapon = i;
-        hasUnit = true;
+        if(mines.resources >= weapons[i].price)
+        {
+            var g = Instantiate(newWeapon, transform.position, Quaternion.identity);
+            g.transform.SetParent(c.transform, false);
+            g.GetComponent<Image>().sprite = weaponSprites[i];
+            g.GetComponent<UIfollow>().index = i;
+            selectedWeapon = i;
+            hasUnit = true;
+            OpenButtonFunction();
+        }
+        else
+        {
+            StartCoroutine(mines.AnimateResourcesText(mines.resourcesTextPlanning));
+        }
+        
         
     }
     public void StartWaveButton(int i)
@@ -181,7 +191,7 @@ public class UnitUIScript : MonoBehaviour
             var m = upgrades[i];
             unitPreviewPanel.SetActive(true);
             prevImg.sprite = m.icons[level];
-            prevImg.GetComponent<SpriteRenderer>().color = Color.white;
+            prevImg.GetComponent<Image>().color = Color.white;
             upgradeDesc.text = m.description[level];
             prevName.text = m.name;
             wepDesc.text = "";

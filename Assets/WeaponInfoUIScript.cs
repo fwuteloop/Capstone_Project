@@ -12,16 +12,20 @@ public class WeaponInfoUIScript : MonoBehaviour, IPointerExitHandler
     public string wepName;
     public Image healthBar;
     public GameObject repairBtn;
-    public TextMeshProUGUI nametxt, healthtxt;
+    public TextMeshProUGUI nametxt, healthtxt, pricetxt;
+    public int repairPrice, fullPrice;
     public PlotData currentPlotData;
+    Minesmanager mines;
     private void Start()
     {
         gameObject.SetActive(false);
+        mines = GameObject.FindObjectOfType<Minesmanager>();
     }
     public void Update()
     {
         nametxt.text = wepName;
         healthtxt.text = currentHealth + "\n/" + fullHealth;
+        pricetxt.text = repairPrice.ToString();
         healthBar.fillAmount = Mathf.Clamp(currentHealth / fullHealth, 0, 1f);
 
         if (currentHealth > fullHealth/2)
@@ -46,8 +50,24 @@ public class WeaponInfoUIScript : MonoBehaviour, IPointerExitHandler
     }
     public void Repair()
     {
-        currentPlotData.health = fullHealth;
-        currentPlotData.ActivatePanel();
+        if(mines.resources >= repairPrice)
+        {
+            currentPlotData.health = fullHealth;
+            mines.Transaction(false, repairPrice);
+            currentPlotData.ActivatePanel();
+        }
+        else
+        {
+            StartCoroutine(mines.AnimateResourcesText(mines.resourcesTextWave));
+        }
+        
+    }
+
+    public void RemoveWeapon()
+    {
+        mines.Transaction(true, fullPrice);
+        currentPlotData.ResetFunction();
+        gameObject.SetActive(false);
     }
 
     public void OnPointerExit(PointerEventData eventData)

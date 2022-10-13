@@ -11,9 +11,12 @@ public class WaveEndScript : MonoBehaviour
 
     public TextMeshProUGUI results;
     WaveSpawner waveSpawner;
+    Minesmanager mines;
     public void Start()
     {
         waveSpawner = GameObject.FindObjectOfType<WaveSpawner>();
+        mines = GameObject.FindObjectOfType<Minesmanager>();
+        resourcesEarned = waveSpawner.resourcesEarned;
         enemiesDestroyed = waveSpawner.defeatedEnemies;
         unitsRepaired = waveSpawner.repairedUnits;
         StartCoroutine(Animate());
@@ -21,7 +24,7 @@ public class WaveEndScript : MonoBehaviour
 
     public IEnumerator Animate()
     {
-        var r = 0;
+        var r = mines.resources;
         var t = "";
         yield return new WaitForSeconds(2);
         results.text = "Enemies Destroyed: ";
@@ -46,6 +49,7 @@ public class WaveEndScript : MonoBehaviour
             yield return null;
         }
         results.text = t + r;
+        mines.resources += resourcesEarned;
         yield return null;
     }
 }

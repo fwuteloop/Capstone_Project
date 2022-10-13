@@ -26,8 +26,16 @@ public class PlotData : MonoBehaviour
         ui.wepName = weapons[unitIndex].name;
         ui.currentHealth = health;
         ui.fullHealth = weapons[unitIndex].health;
+        ui.fullPrice = weapons[unitIndex].price;
+        ui.repairPrice = ui.fullPrice / 3;
         ui.currentPlotData = GetComponent<PlotData>();
         //Debug.Log("mouse over plot");
+    }
+
+    public void ResetFunction()
+    {
+        Destroy(myUnit);
+        isOccupied = false;
     }
 
 

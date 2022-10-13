@@ -30,6 +30,10 @@ public class WaveSpawner : MonoBehaviour
     public List<GameObject> aliveEnemies;
     public int defeatedEnemies;
     public int repairedUnits;
+    public int[] resourcesArray;
+    public int resourcesEarned;
+
+    public GameObject warning;
 
     private void Awake()
     {
@@ -53,10 +57,10 @@ public class WaveSpawner : MonoBehaviour
             gracePeriod += Time.deltaTime;
             if (waveCount != 2)
             {
-                if (gracePeriod > 5)
+                if (gracePeriod > 2)
                 {
+                    StartCoroutine(WarningAnimate());
                     waveCount += 1;
-                    //warning UI image appears in a coroutine
                     canSpawn = true;
                     gracePeriod = 0;
                 }
@@ -76,7 +80,21 @@ public class WaveSpawner : MonoBehaviour
             this.enabled = false;
         }
     }
-
+    IEnumerator WarningAnimate()
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            warning.SetActive(!warning.activeSelf);
+            yield return new WaitForSeconds(1);
+        }
+        yield return null;
+    }
+    public void NewLevel(int i)
+    {
+        defeatedEnemies = 0;
+        repairedUnits = 0;
+        resourcesEarned = resourcesArray[i];
+    }
     public void AddRepairUnit()
     {
         repairedUnits += 1;

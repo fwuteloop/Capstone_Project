@@ -40,6 +40,7 @@ public class EnemySetup : MonoBehaviour
         if (GetComponent<SpriteRenderer>() == null)
             spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = sprite;
+        spriteRenderer.flipX = true;
         spriteRenderer.sortingOrder = 3;
 
         if (GetComponent<BoxCollider2D>() == null)

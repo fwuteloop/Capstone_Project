@@ -16,7 +16,7 @@ public class Minesmanager : MonoBehaviour
     public float waitPeriod;
     public float duration;
     public bool animated;
-    public TextMeshProUGUI collectText, resourcesText;
+    public TextMeshProUGUI collectText, resourcesTextPlanning, resourcesTextWave;
     public Color collectImageColor, disabledImageColor, collectTextColor, disabledTextColor;
     public Button collectButton;
     public GameObject[] upgradeButtons;
@@ -41,7 +41,8 @@ public class Minesmanager : MonoBehaviour
     public void Update()
     {
         timer -= Time.deltaTime;
-        resourcesText.text = resources.ToString();
+        resourcesTextPlanning.text = resources.ToString();
+        resourcesTextWave.text = resources.ToString();
         if (timer <= 0)
         {
             cache += rate;
@@ -93,26 +94,26 @@ public class Minesmanager : MonoBehaviour
         collectText.color = textEnd;
         yield return null;
     }
-    public IEnumerator AnimateResourcesText()
+    public IEnumerator AnimateResourcesText(TextMeshProUGUI txt)
     {
         var time = 0f;
         while(time < duration)
         {
             float t = time / duration;
-            resourcesText.color = Color.Lerp(Color.white, Color.red, t);
+            txt.color = Color.Lerp(Color.white, Color.red, t);
             time += Time.deltaTime;
             yield return null;
         }
-        resourcesText.color = Color.red;
+        txt.color = Color.red;
         time = 0f;
         while (time < duration)
         {
             float t = time / duration;
-            resourcesText.color = Color.Lerp(Color.red, Color.white, t);
+            txt.color = Color.Lerp(Color.red, Color.white, t);
             time += Time.deltaTime;
             yield return null;
         }
-        resourcesText.color = Color.white;
+        txt.color = Color.white;
         yield return null;
     }
 
@@ -134,7 +135,7 @@ public class Minesmanager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(AnimateResourcesText());
+            StartCoroutine(AnimateResourcesText(resourcesTextPlanning));
         }
     }
 
@@ -155,5 +156,19 @@ public class Minesmanager : MonoBehaviour
                 b.gameObject.SetActive(true);
             }
         }
+
+        
     }
+    public void Transaction(bool adding, int i)
+    {
+        if(adding)
+        {
+            resources += i;
+        }
+        else
+        {
+            resources -= i;
+        }
+    }
+
 }
