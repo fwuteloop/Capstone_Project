@@ -2733,7 +2733,7 @@ GameObject:
   - component: {fileID: 279274057}
   - component: {fileID: 279274056}
   m_Layer: 5
-  m_Name: WaveEndPanel
+  m_Name: LevelEndPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5595,6 +5595,18 @@ MonoBehaviour:
       - m_Target: {fileID: 609730594}
         m_TargetAssemblyTypeName: WeaponInfoUIScript, Assembly-CSharp
         m_MethodName: Repair
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2034667175}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: AddRepairUnit
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11326,27 +11338,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3a40301f78714caa9a2085e47d541, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveCount: 0
-  currentEnemyCount: 0
-  maxEnemyCount: 5
-  waveEnded: 0
-  waveStarted: 0
-  spawnInterval: 2
-  spawnTimer: 0
-  currentSpawnPoint: {fileID: 360760244}
-  currentEnemySet: []
-  lvl1Enemies:
-  - {fileID: 433048454854475412, guid: ed636d0b539587a4ebdc909fee34fd20, type: 3}
-  - {fileID: 433048454854475412, guid: ed636d0b539587a4ebdc909fee34fd20, type: 3}
-  - {fileID: 433048454854475412, guid: ed636d0b539587a4ebdc909fee34fd20, type: 3}
-  lvl2Enemies: []
-  lvl3Enemies: []
-  lvl4Enemies: []
-  lvl5Enemies: []
-  lvl6Enemies: []
-  allEnemies: []
-  gm: {fileID: 0}
-  uiManager: {fileID: 0}
 --- !u!4 &999386592
 Transform:
   m_ObjectHideFlags: 0
@@ -22985,9 +22976,12 @@ MonoBehaviour:
   - {fileID: 804862143}
   currentWaveInt: 0
   waveCount: 0
+  gracePeriod: 0
   canSpawn: 1
   levelEnd: 0
   aliveEnemies: []
+  defeatedEnemies: 0
+  repairedUnits: 0
 --- !u!4 &2034667176
 Transform:
   m_ObjectHideFlags: 0

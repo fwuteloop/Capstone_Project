@@ -17,9 +17,11 @@ public class EnemyBehavior : MonoBehaviour
     public bool firing;
 
     WaveSpawner waveSpawner;
+    WaveEndScript waveEnd;
     // Start is called before the first frame update
     void Start()
     {
+        waveEnd = GameObject.FindObjectOfType<WaveEndScript>();
         waveSpawner = GameObject.FindObjectOfType<WaveSpawner>();
         enemyValues = GetComponent<EnemySetup>();
         enemyMovement = GetComponent<EnemyMovement>();
@@ -43,6 +45,7 @@ public class EnemyBehavior : MonoBehaviour
 
         if (enemyValues.health < 0)
         {
+            waveSpawner.defeatedEnemies += 1;
             waveSpawner.aliveEnemies.Remove(gameObject);
             Destroy(gameObject);
         }

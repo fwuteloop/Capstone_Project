@@ -7,12 +7,15 @@ public class WaveEndScript : MonoBehaviour
 {
     public int enemiesDestroyed;
     public int resourcesEarned;
-    public int unitsDestroyed;
+    public int unitsRepaired;
 
     public TextMeshProUGUI results;
-
+    WaveSpawner waveSpawner;
     public void Start()
     {
+        waveSpawner = GameObject.FindObjectOfType<WaveSpawner>();
+        enemiesDestroyed = waveSpawner.defeatedEnemies;
+        unitsRepaired = waveSpawner.repairedUnits;
         StartCoroutine(Animate());
     }
 
@@ -25,9 +28,9 @@ public class WaveEndScript : MonoBehaviour
         yield return new WaitForSeconds(1);
         results.text += enemiesDestroyed;
         yield return new WaitForSeconds(1);
-        results.text += "\nunitsDestroyed: ";
+        results.text += "\nUnits Repaired: ";
         yield return new WaitForSeconds(1);
-        results.text += unitsDestroyed;
+        results.text += unitsRepaired;
         yield return new WaitForSeconds(1);
         results.text += "\nResources: ";
         t = results.text;

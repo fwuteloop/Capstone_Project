@@ -21,12 +21,15 @@ public class WaveSpawner : MonoBehaviour
 
     private float nextSpawn;
 
+    public float gracePeriod;
     public bool canSpawn;
     public bool levelEnd;
 
     GameManager gm;
     UIManager uiManager;
     public List<GameObject> aliveEnemies;
+    public int defeatedEnemies;
+    public int repairedUnits;
 
     private void Awake()
     {
@@ -44,10 +47,24 @@ public class WaveSpawner : MonoBehaviour
 
         if(!canSpawn && aliveEnemies.Count == 0 && !levelEnd)
         {
-            waveCount += 1;
+            
             currentWave.enemyCount = currentWave.enemies.Length;
-            //warning UI image appears in a coroutine
-            canSpawn = true;
+
+            gracePeriod += Time.deltaTime;
+            if (waveCount != 2)
+            {
+                if (gracePeriod > 5)
+                {
+                    waveCount += 1;
+                    //warning UI image appears in a coroutine
+                    canSpawn = true;
+                    gracePeriod = 0;
+                }
+            }
+            else if (waveCount == 2)
+            {
+                waveCount += 1;
+            }
         }
 
         if(waveCount == 3)
@@ -60,6 +77,11 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
+    public void AddRepairUnit()
+    {
+        repairedUnits += 1;
+    }
+
     public void ResetLevelEnd()
     {
         currentWaveInt += 1;
@@ -68,6 +90,7 @@ public class WaveSpawner : MonoBehaviour
 
     public void CreateWave()
     {
+        
         if (canSpawn && nextSpawn < Time.time)
         {
             GameObject randEnemy = currentWave.enemies[Random.Range(0, currentWave.enemies.Length)];
